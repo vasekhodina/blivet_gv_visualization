@@ -1,8 +1,11 @@
 class Node(object):
-	def __init__(self,name,disk_type,size=0):
+	def __init__(self,name,disk_type,size=0,mountpoint,fs_type,free_space):
 		self.__name=name
 		self.__disk_type=disk_type	
 		self.__size=size
+		self.__mountpoint=mountpoint
+		self.__fs_type=fs_type
+		self.__free_space=free_space
 	def setName(name):
 		self.__name=name
 	def setSize(size):

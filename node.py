@@ -1,5 +1,5 @@
 class Node(object):
-	def __init__(self,name,disk_type,size=0,mountpoint,fs_type,free_space):
+	def __init__(self,name,disk_type,size=0,mountpoint=0,fs_type=0,free_space=0):
 		self.__name=name
 		self.__disk_type=disk_type	
 		self.__size=size

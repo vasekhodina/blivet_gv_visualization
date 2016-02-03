@@ -10,6 +10,7 @@ class Visualization(object):
                 gvInput.getDataFromBlivet(node_list, edge_list)
                 output = output.Output()
                 output.createSvg()
+				output.createGtk()
 
 
 

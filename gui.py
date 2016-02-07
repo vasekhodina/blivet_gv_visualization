@@ -1,6 +1,5 @@
-from gi.repository import Gtk
+from gi.repository import Gtk, Rsvg, GdkPixbuf
 import sys
-#import rsvg
 import visualization
 
 
@@ -8,17 +7,25 @@ class Gui(Gtk.Window):
 
 	def __init__(self):
 		Gtk.Window.__init__(self, title="Disk data visualization")
+		self.box = Gtk.Box(spacing=6)
+		self.add(self.box)
+
 		self.button = Gtk.Button(label="Do the magic!")
 		self.button.connect("clicked", self.on_button_clicked)
-		self.add(self.button)
+		self.box.pack_start(self.button, True, True, 0)
 
 	def on_button_clicked(self, widget):
-		visualization.createGraph("degraf")
-		"""svg = rsvg.Handle(file="graf")
-		win.connect("expose-event", svg)
-		win.show_all()
-"""
-		
+		vis = visualization.Visualization()
+		vis.createGraph("degraf")
+
+
+		svg = Rsvg.Handle.new_from_file("degraph")
+		loader = GdkPixbuf.PixbufLoader()
+		pixbuf = svg.get_pixbuf()
+		image = Gtk.Image.new_from_pixbuf(pixbuf)
+
+		self.box.pack_start(image, True, True, 0)
+		self.show_all()
 
 """    def do_activate(self):
         # create a Gtk Window belonging to the application itself

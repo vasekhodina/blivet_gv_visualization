@@ -1,4 +1,4 @@
-import blivet
+import blivet.blivet
 import gv
 import gvInput
 import output

@@ -1,4 +1,8 @@
+import gi
+gi.require_version('Gtk', '3.0')
+gi.require_version('Rsvg', '2.0')
 from gi.repository import Gtk, Rsvg, GdkPixbuf
+
 import sys
 import visualization
 
@@ -26,6 +30,7 @@ class Gui(Gtk.Window):
 
 		self.box.pack_start(image, True, True, 0)
 		self.show_all()
+		loader.close()
 
 """    def do_activate(self):
         # create a Gtk Window belonging to the application itself

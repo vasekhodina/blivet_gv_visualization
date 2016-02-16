@@ -23,7 +23,7 @@ class Gui(Gtk.Window):
 		vis.createGraph("degraf")
 
 
-		svg = Rsvg.Handle.new_from_file("degraph")
+		svg = Rsvg.Handle.new_from_file("degraf")
 		loader = GdkPixbuf.PixbufLoader()
 		pixbuf = svg.get_pixbuf()
 		image = Gtk.Image.new_from_pixbuf(pixbuf)

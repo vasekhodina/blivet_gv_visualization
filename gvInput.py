@@ -9,7 +9,7 @@ class GvInput:
 		blvt.reset()
 		for n in blvt.devices:
 			if not n.type in blacklist:
-				node_to_be_added = node.Node(n.name,n.type,n.size)
+				node_to_be_added = node.Node(n.name,n.type,n.status,n.uuid,n.path,n.size)
 				node_list.append(node_to_be_added)	
 				if n.parents:
 					print "First parent: " + n.parents[0].name + n.parents[0].type 

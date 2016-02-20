@@ -11,35 +11,39 @@ class Gui(Gtk.Window):
 
 	def __init__(self):
 		Gtk.Window.__init__(self, title="Disk data visualization")
-		self.box = Gtk.Box(spacing=6)
-		self.add(self.box)
+		self.grid = Gtk.Grid()
+		self.add(self.grid)
+		self.layout = Gtk.Layout()
+		self.layout.set_size(800,600)
+		self.layout.set_vexpand(True)
+		self.layout.set_hexpand(True)	
 
 		self.button = Gtk.Button(label="Do the magic!")
+		self.layout.put(self.button, 6,6)
 		self.button.connect("clicked", self.on_button_clicked)
-		self.box.pack_start(self.button, True, True, 0)
+		
+		self.grid.attach(self.layout, 0, 0, 1, 1)
+
+		vadjustment = self.layout.get_vadjustment()
+		hadjustment = self.layout.get_hadjustment()
+		vscrollbar = Gtk.Scrollbar(orientation=Gtk.Orientation.VERTICAL, adjustment=vadjustment)
+		self.grid.attach(vscrollbar, 1, 0, 1, 1)
+		hscrollbar = Gtk.Scrollbar(orientation=Gtk.Orientation.HORIZONTAL, adjustment=hadjustment)
+		self.grid.attach(hscrollbar, 0, 1, 1, 1)
+		
+		self.vis = visualization.Visualization()
+		self.vis.createGraph("degraf")
+		self.svg = Rsvg.Handle.new_from_file("degraf")
+		self.svg_dimensions = self.svg.get_dimensions()
+
 
 	def on_button_clicked(self, widget):
-		vis = visualization.Visualization()
-		vis.createGraph("degraf")
-
-
-		svg = Rsvg.Handle.new_from_file("degraf")
 		loader = GdkPixbuf.PixbufLoader()
-		pixbuf = svg.get_pixbuf()
+		pixbuf = self.svg.get_pixbuf()
 		image = Gtk.Image.new_from_pixbuf(pixbuf)
-
-		self.box.pack_start(image, True, True, 0)
+		self.layout.put(image, 20, 20)
 		self.show_all()
 		loader.close()
-
-"""    def do_activate(self):
-        # create a Gtk Window belonging to the application itself
-        window = Gtk.Window(application=self)
-        # set the title
-        window.set_title("")
-        # show the window
-        window.show_all()
-"""
 
 # create and run the application, exit with the value returned by
 # running the program

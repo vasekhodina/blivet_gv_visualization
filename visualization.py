@@ -16,5 +16,6 @@ class Visualization(object):
 		self.prepareNodes(node_list)
 		out = output.Output(node_list, edge_list)
 		out.createSvg(graph_name)
+		#out.createGtk(graph_name)
 
 

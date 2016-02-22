@@ -17,8 +17,9 @@ class Output:
 		graph = gv.digraph("degraph")
 		for i in node_list:
 			new_node = gv.node(graph,str(i.getName()))
-			print i.getLabel()
-			gv.setv(new_node,"label",str(i.getLabel()))
+			gv_attrs = i.getGvAttributes()
+			for k,v in gv_attrs.iteritems(): 
+				gv.setv(new_node,str(k),str(v))
 		for i in edge_list:
 			gv.edge(graph,str(i.getFrom()),str(i.getTo()))	
 		return graph

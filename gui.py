@@ -13,8 +13,8 @@ class Gui(Gtk.Window):
 		Gtk.Window.__init__(self, title="Disk data visualization")
 		self.grid = Gtk.Grid()
 		self.add(self.grid)
+		self.set_default_size(800,600)
 		self.layout = Gtk.Layout()
-		self.layout.set_size(800,600)
 		self.layout.set_vexpand(True)
 		self.layout.set_hexpand(True)	
 
@@ -34,14 +34,15 @@ class Gui(Gtk.Window):
 		self.vis = visualization.Visualization()
 		self.vis.createGraph("degraf")
 		self.svg = Rsvg.Handle.new_from_file("degraf")
-		self.svg_dimensions = self.svg.get_dimensions()
 
 
 	def on_button_clicked(self, widget):
 		loader = GdkPixbuf.PixbufLoader()
 		pixbuf = self.svg.get_pixbuf()
 		image = Gtk.Image.new_from_pixbuf(pixbuf)
-		self.layout.put(image, 20, 20)
+		svg_dimensions = self.svg.get_dimensions()
+		self.layout.set_size(svg_dimensions.width + 30,svg_dimensions.height + 50)
+		self.layout.put(image, 20, 40)
 		self.show_all()
 		loader.close()
 

@@ -1,0 +1,3 @@
+[submodule "blivet"]
+	path = blivet
+	url = https://github.com/rhinstaller/blivet.git

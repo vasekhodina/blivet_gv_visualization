@@ -19,7 +19,6 @@ class Node(object):
 		self.__disk_type=disk_type
 	def addGvAttribute(self,attr,value):
 		self.__gv_attributes[str(attr)] = str(value)
-		print self.__gv_attributes
 	def getName(self):
 		return self.__name
 	def getType(self):
@@ -27,9 +26,9 @@ class Node(object):
 	def getGvAttributes(self):
 		return self.__gv_attributes
 	def prepare(self):
-		print self.__name
+		print(self.__name)
 		self.__label = "Name: " + self.__name + "\n" + "Type: " + self.__disk_type + "\n"	
-		for k,v in self.__attributes.iteritems():
+		for k,v in self.__attributes.items():
 			self.__label = self.__label + str(k) + ": " + str(v) + "\n"
 		self.addGvAttribute("label",self.__label)
-		print self.__gv_attributes
+		print(self.__gv_attributes)

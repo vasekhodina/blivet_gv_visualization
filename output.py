@@ -1,3 +1,7 @@
+#TODO add these two lines to the svg programatically:
+#<script xlink:href="SVGPan.js"/>
+#<g id="viewport" transform="translate(200,200)">
+#and delete everything except xmlns width and height tags in <svg>
 import graphviz 
 
 class Output:

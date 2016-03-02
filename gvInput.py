@@ -1,7 +1,6 @@
 import blivet.blivet
 import node
 import edge
-#TODO nodes sorting, need to add parent into graph node and put nodes without parents into graph first
 class GvInput:
 	def getDataFromBlivet(self,node_list, edge_list):
 		blacklist = ["cdrom"]
@@ -13,9 +12,7 @@ class GvInput:
 				self.colorNode(n,node_to_be_added)
 				node_list.append(node_to_be_added)	
 				if n.parents:
-					print("First parent: " + n.parents[0].name + n.parents[0].type) 
 					if n.parents[0].type == "luks//dm-crypt":
-						print("Second parent: " + n.parents[0].parents[0].name)
 						edge_to_be_added = edge.Edge(n.parents[0].parents[0].name,n.name)
 					else:
 						edge_to_be_added = edge.Edge(n.parents[0].name,n.name)

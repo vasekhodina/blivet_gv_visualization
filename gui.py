@@ -1,20 +1,24 @@
 import gi
 gi.require_version('Gtk', '3.0')
 gi.require_version('Rsvg', '2.0')
-from gi.repository import Gtk, Rsvg, GdkPixbuf
+gi.require_version('WebKit', '3.0')
+from gi.repository import Gtk, Rsvg, GdkPixbuf, WebKit
 
 import sys
 import visualization
-
+#TODO Clean up this flippin mess
 
 class Gui(Gtk.Window):
 
 	def __init__(self):
 		Gtk.Window.__init__(self, title="Disk data visualization")
+		self.webview = WebKit.WebView()
+		settings = self.webview.get_settings()
 		self.grid = Gtk.Grid()
 		self.add(self.grid)
 		self.set_default_size(800,600)
 		self.layout = Gtk.Layout()
+		self.layout.put(self.webview,50,50)
 		self.layout.set_vexpand(True)
 		self.layout.set_hexpand(True)	
 
@@ -33,19 +37,11 @@ class Gui(Gtk.Window):
 		
 		self.vis = visualization.Visualization()
 		self.vis.createGraph("degraf")
-		self.svg = Rsvg.Handle.new_from_file("degraf")
 
 
 	def on_button_clicked(self, widget):
-		loader = GdkPixbuf.PixbufLoader()
-		pixbuf = self.svg.get_pixbuf()
-		image = Gtk.Image.new_from_pixbuf(pixbuf)
-		svg_dimensions = self.svg.get_dimensions()
-		self.layout.set_size(svg_dimensions.width + 30,svg_dimensions.height + 50)
-		self.layout.put(image, 20, 40)
-		self.show_all()
-		loader.close()
-
+		self.webview.open("file://localhost/home/vhodina/git/blivet_gv_visualization/degraf.bkp")
+		
 # create and run the application, exit with the value returned by
 # running the program
 win = Gui()

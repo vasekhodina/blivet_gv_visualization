@@ -13,20 +13,29 @@ class Node(object):
 			self.__attributes['path'] = path
 		if size != None:
 			self.__attributes['size'] = size
+
 	def setName(name):
 		self.__name=name
+
 	def setType(disk_type):
 		self.__disk_type=disk_type
+
 	def addGvAttribute(self,attr,value):
 		self.__gv_attributes[str(attr)] = str(value)
+
 	def getName(self):
 		return self.__name
+
 	def getType(self):
 		return self.__disk_type
+
 	def getGvAttributes(self):
 		return self.__gv_attributes
+
 	def prepare(self):
 		self.__label = "Name: " + self.__name + "\n" + "Type: " + self.__disk_type + "\n"	
 		for k,v in self.__attributes.items():
 			self.__label = self.__label + str(k) + ": " + str(v) + "\n"
 		self.addGvAttribute("label",self.__label)
+
+	

@@ -26,17 +26,33 @@ class GvInput:
             self.nodeIsLuks(node)
         if node.getType() == "disk":
             self.nodeIsHarddrive(node)
+        if node.getType() == "partition":
+            self.nodeIsPartition(node)
+        if node.getType() == "lvmlv":
+            self.nodeIsLV(node)
+        if node.getType() == "lvmvg":
+            self.nodeIsVG(node)
 
     def nodeIsHarddrive(self, node):
-        node.change_style("box")
+        node.change_shape("box")
+        node.change_color("lightgreen")
 
-    def nodeIsLVM(self):
-        return
+    def nodeIsPartition(self, node):
+        node.change_shape("box")
+        node.change_color("lightgreen")
+
+    def nodeIsLV(self, node):
+        node.change_shape("rounded-box")
+        node.change_color("turquoise")
+
+    def nodeIsVG(self, node):
+        node.change_shape("rounded-box")
+        node.change_color("lightblue")
 
     def nodeIsRAID(self):
         return
 
     def nodeIsLuks(self, node):
-        self.change_color(node, "blue")
+        node.change_color("lightskyblue")
 
     # def getDataFromXML():

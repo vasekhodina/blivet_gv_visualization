@@ -40,12 +40,21 @@ class Node(object):
         self.addGvAttribute("label", self.__label)
 
     def change_color(self, color):
-        self.change_style("filled")
+        self.change_style_safely("filled")
         self.addGvAttribute("fillcolor", color)
 
-    def change_style(self, style):
-        if not self.__gv_attributes["style"]:
+    def change_shape(self, shape):
+        if shape == "rounded-box":
+            self.change_shape("box")
+            self.change_style_safely("rounded")
+        else:
+            self.addGvAttribute("shape",shape)
+
+    def change_style_safely(self, style):
+        if self.__gv_attributes.get("style", None) is None:
             self.addGvAttribute("style", style)
         else:
-            self.addGvAttribute("style",
-                                self.getGvAttributes()["style"] + ", " + style)
+            oldstyle = self.getGvAttributes()["style"]
+            del self.__gv_attributes["style"]
+            self.addGvAttribute("style", oldstyle + ", " + style) 
+            print(oldstyle)

@@ -4,15 +4,17 @@ import output
 
 class Visualization(object):
 
-    def prepareNodes(self, node_list):
-        for n in node_list:
+    def __init__(self):
+        self.node_list = []
+        self.edge_list = []
+
+    def prepareNodes(self):
+        for n in self.node_list:
             n.prepare()
 
-    def createGraph(self, graph_name):
-        node_list = []
-        edge_list = []
+    def createGraph(self, graph_name, graph_abs_path):
         gv_input = gvInput.GvInput()
-        gv_input.getDataFromBlivet(node_list, edge_list)
-        self.prepareNodes(node_list)
-        out = output.Output(node_list, edge_list)
-        out.createSvg(graph_name)
+        gv_input.getDataFromBlivet(self.node_list, self.edge_list)
+        self.prepareNodes()
+        out = output.Output(self.node_list, self.edge_list)
+        out.createSvg(graph_name, graph_abs_path)

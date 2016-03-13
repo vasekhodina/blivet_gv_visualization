@@ -1,5 +1,6 @@
-import sys
 import visualization
+import sys
+from os import path
 
 import gi
 gi.require_version('Gtk', '3.0')
@@ -11,6 +12,8 @@ from gi.repository import Gtk, Rsvg, GdkPixbuf, WebKit
 # TODO Clean up this flippin mess
 class Gui(Gtk.Window):
     def __init__(self):
+        self.VAR_DIR = "./var/"
+        self.GRAPH_NAME = "degraf"
         Gtk.Window.__init__(self, title="Disk data visualization")
         self.webview = WebKit.WebView()
         settings = self.webview.get_settings()
@@ -35,10 +38,9 @@ class Gui(Gtk.Window):
         self.grid.attach(hscrollbar, 0, 1, 1, 1)
 
         self.vis = visualization.Visualization()
-        self.vis.createGraph("degraf")
-
+        self.vis.createGraph(self.GRAPH_NAME, self.VAR_DIR) 
     def on_button_clicked(self, widget):
-        self.webview.open("file://localhost/home/vhodina/git/blivet_gv_visualization/degraf.bkp")
+        self.webview.open("file://localhost" + path.abspath(self.VAR_DIR) + "/"  + self.GRAPH_NAME)
 
 # create and run the application, exit with the value returned by
 # running the program

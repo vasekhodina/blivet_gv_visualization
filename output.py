@@ -9,8 +9,8 @@ class Output:
     def __init__(self, node_list, edge_list):
         self.graph = self.createGvGraph(node_list, edge_list)
 
-    def createSvg(self, graph_name):
-        svg_file = open(graph_name, "w")
+    def createSvg(self, graph_name, graph_abs_path):
+        svg_file = open(graph_abs_path + "/" + graph_name, "w")
         svg_file.write(self.graph.pipe(format="svg").decode(encoding="UTF-8"))
         svg_file.close()
 

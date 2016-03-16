@@ -40,7 +40,7 @@ class Gui(Gtk.Window):
         self.vis = visualization.Visualization()
         self.vis.createGraph(self.GRAPH_NAME, self.VAR_DIR) 
     def on_button_clicked(self, widget):
-        self.webview.open("file://localhost" + path.abspath(self.VAR_DIR) + "/"  + self.GRAPH_NAME)
+        self.webview.open("file://localhost" + path.abspath(self.VAR_DIR) + "/"  + self.GRAPH_NAME + ".svg")
 
 # create and run the application, exit with the value returned by
 # running the program

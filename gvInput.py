@@ -67,7 +67,7 @@ class GvInput:
     def nodeIsLVMThinPool(self, node):
         node.change_color("blueviolet")
 
-    def nodeIsLVMThinLv(self,node)
+    def nodeIsLVMThinLv(self,node):
         node.change_shape("rounded-box")
         node.change_color("darkorchid") 
 

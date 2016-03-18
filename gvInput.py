@@ -32,9 +32,15 @@ class GvInput:
             self.nodeIsLV(node)
         if node.getType() == "lvmvg":
             self.nodeIsVG(node)
+        if node.getType() == "lvmthinpool":
+            self.nodeIsLVMThinPool(node)
+        if node.getType() == "lvmthinlv":
+            self.nodeIsLVMThinLv(node)
+        if node.getType() == "btrfs volume":
+            self.nodeIsBTRFS(node)
 
     def nodeIsHarddrive(self, node):
-        node.change_shape("box")
+        node.change_shape("Msquare")
         node.change_color("lightgreen")
 
     def nodeIsPartition(self, node):
@@ -46,7 +52,6 @@ class GvInput:
         node.change_color("turquoise")
 
     def nodeIsVG(self, node):
-        node.change_shape("rounded-box")
         node.change_color("lightblue")
 
     def nodeIsRAID(self):
@@ -54,5 +59,16 @@ class GvInput:
 
     def nodeIsLuks(self, node):
         node.change_color("lightskyblue")
+
+    def nodeIsBTRFS(self, node):
+        node.change_shape("hexagon")
+        node.change_color("turquoise")
+
+    def nodeIsLVMThinPool(self, node):
+        node.change_color("blueviolet")
+
+    def nodeIsLVMThinLv(self,node)
+        node.change_shape("rounded-box")
+        node.change_color("darkorchid") 
 
     # def getDataFromXML():

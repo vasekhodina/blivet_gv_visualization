@@ -1,7 +1,4 @@
-# TODO add these two lines to the svg programatically:
-# <script xlink:href="SVGPan.js"/>
-# <g id="viewport" transform="translate(200,200)">
-# and delete everything except xmlns width and height tags in <svg>
+from os import path
 import graphviz
 import xml.etree.ElementTree as ET
 
@@ -37,6 +34,6 @@ class Output:
         graph_element.set("id", "viewport")
         # Add the script
         new_element = ET.Element("script")
-        new_element.set("xlink:href", "SVGPan.js")
+        new_element.set("xlink:href", path.abspath("./JS") + "/SVGPan.js")
         root.insert(0,new_element)
         return tree

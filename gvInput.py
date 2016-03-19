@@ -14,11 +14,11 @@ class GvInput:
                 self.processNode(node_to_be_added)
                 node_list.append(node_to_be_added)
                 print("Adding device, Name: " + n.name + " Type: " + n.type)
-                if n.parents:
-                    if n.parents[0].type == "luks//dm-crypt":
-                        edge_to_be_added = edge.Edge(n.parents[0].parents[0].name, n.name)
+                for parent in n.parents:
+                    if parent.type == "luks//dm-crypt":
+                        edge_to_be_added = edge.Edge(parent.parents[0].name, n.name)
                     else:
-                        edge_to_be_added = edge.Edge(n.parents[0].name, n.name)
+                        edge_to_be_added = edge.Edge(parent.name, n.name)
                         edge_list.append(edge_to_be_added)
 
     def processNode(self, node):

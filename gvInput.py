@@ -38,6 +38,8 @@ class GvInput:
             self.nodeIsLVMThinLv(node)
         if node.getType() == "btrfs volume":
             self.nodeIsBTRFS(node)
+        if node.getType() == "mdarray":
+            self.nodeIsMDRAID() 
 
     def nodeIsHarddrive(self, node):
         node.change_shape("Msquare")
@@ -54,9 +56,6 @@ class GvInput:
     def nodeIsVG(self, node):
         node.change_color("lightblue")
 
-    def nodeIsRAID(self):
-        return
-
     def nodeIsLuks(self, node):
         node.change_color("lightskyblue")
 
@@ -70,5 +69,9 @@ class GvInput:
     def nodeIsLVMThinLv(self,node):
         node.change_shape("rounded-box")
         node.change_color("darkorchid") 
+
+    def nodeIsMDRAID():
+        node.change_color("sandybrown")
+        node.change_shape("octagon")
 
     # def getDataFromXML():

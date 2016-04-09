@@ -282,5 +282,12 @@ function handleMouseUp(evt) {
 		// Quit pan mode
 		state = '';
 	}
+function node_zoom(element){
+
+
+        }
+function node_focus(elemnt){
+
+        }
 }
 

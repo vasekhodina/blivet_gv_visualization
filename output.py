@@ -32,8 +32,16 @@ class Output:
         # Prepare first child for JS
         graph_element = root.find("./*[@id='graph0']")
         graph_element.set("id", "viewport")
-        # Add the script
+        # Add the scripts
         new_element = ET.Element("script")
         new_element.set("xlink:href", path.abspath("./JS") + "/SVGPan.js")
         root.insert(0,new_element)
+        new_element = ET.Element("script")
+        new_element.set("xlink:href", path.abspath("./JS") + "/vis_util.js")
+        root.insert(0,new_element)
+
+        node_elements = root.findall(".//*[@class='node']")
+        print(node_elements)
+        for element in node_elements:
+            element.set("onclick","zoomNode(this)")
         return tree

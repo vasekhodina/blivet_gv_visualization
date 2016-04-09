@@ -43,7 +43,7 @@ class GvInput:
 
     def nodeIsHarddrive(self, node):
         node.change_shape("Msquare")
-        node.change_color("lightgreen")
+        node.change_color("#5CDD5C")
 
     def nodeIsPartition(self, node):
         node.change_shape("box")

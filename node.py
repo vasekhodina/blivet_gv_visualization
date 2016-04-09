@@ -38,6 +38,7 @@ class Node(object):
         for k, v in self.__attributes.items():
             self.__label = self.__label + str(k) + ": " + str(v) + "\n"
         self.addGvAttribute("label", self.__label)
+        self.addGvAttribute("comment","comment")
 
     def change_color(self, color):
         self.change_style_safely("filled")

@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 
 class Pallete:
     def __init__(self):
-        tree = ET.parse("pallete.xml")
+        tree = ET.parse("assets/pallete.xml")
         self.root = tree.getroot()
         self.primary = self.fill_colorset("primary")
         self.secondary_first = self.fill_colorset("secondary-1")

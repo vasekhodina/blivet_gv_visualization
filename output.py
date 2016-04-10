@@ -41,7 +41,17 @@ class Output:
         root.insert(0,new_element)
 
         node_elements = root.findall(".//*[@class='node']")
-        print(node_elements)
         for element in node_elements:
             element.set("onclick","zoomNode(this)")
+            pos = 0
+            for text_subelement in element:
+                print(text_subelement.tag)
+                if text_subelement.tag == "{http://www.w3.org/2000/svg}text":
+                    if pos < 3:
+                        text_subelement.set("font-size", "18.00")
+                        text_subelement.set("transform", "translate(0, " + str(pos*10) + ")")
+                        pos += 1
+                    else:
+                        text_subelement.set("visibility", "hidden")
+                        pos += 1
         return tree

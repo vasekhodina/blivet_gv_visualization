@@ -10,7 +10,7 @@ class GvInput:
         blvt.reset()
         for n in blvt.devices:
             if n.type not in blacklist:
-                node_to_be_added = node.Node(n.name, n.type, n.status, n.uuid, n.path, n.size)
+                node_to_be_added = node.Node(n.name, n.type, n.format, n.size, n.path, n.uuid)
                 self.processNode(node_to_be_added)
                 node_list.append(node_to_be_added)
                 print("Adding device, Name: " + n.name + " Type: " + n.type)

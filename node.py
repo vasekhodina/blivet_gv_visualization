@@ -1,25 +1,28 @@
 class Node(object):
 
-    def __init__(self, name, disk_type, status="", uuid="", path="", size=""):
+    def __init__(self, name, disk_type, format="", size="", path="", uuid=""):
         self.__name = name
         self.__disk_type = disk_type
         self.__gv_attributes = {}
         self.__attributes = {}
         self.__label = ""
-        if status is not None:
-            self.__attributes['status'] = status
-        if uuid is not None:
-            self.__attributes['uuid'] = uuid
-        if path is not None:
-            self.__attributes['path'] = path
+        if format is not None:
+            addAttribute('format', format)
         if size is not None:
-            self.__attributes['size'] = size
+            addAttribute('size', size)
+        if path is not None:
+            addAttribute('path', path )
+        if uuid is not None:
+            addAttribute('uuid', uuid )
 
     def setName(name):
         self.__name = name
 
     def setType(disk_type):
         self.__disk_type = disk_type
+
+    def addAttribute(attribute_name, value)
+        self._attributes[attribute_name] = value
 
     def addGvAttribute(self, attr, value):
         self.__gv_attributes[str(attr)] = str(value)

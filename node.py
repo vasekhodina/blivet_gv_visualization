@@ -7,22 +7,22 @@ class Node(object):
         self.__attributes = {}
         self.__label = ""
         if format is not None:
-            addAttribute('format', format)
+            self.addAttribute('format', format)
         if size is not None:
-            addAttribute('size', size)
+            self.addAttribute('size', size)
         if path is not None:
-            addAttribute('path', path )
+            self.addAttribute('path', path )
         if uuid is not None:
-            addAttribute('uuid', uuid )
+            self.addAttribute('uuid', uuid )
 
-    def setName(name):
+    def setName(self,name):
         self.__name = name
 
-    def setType(disk_type):
+    def setType(self,disk_type):
         self.__disk_type = disk_type
 
-    def addAttribute(attribute_name, value)
-        self._attributes[attribute_name] = value
+    def addAttribute(self,attribute_name, value):
+        self.__attributes[attribute_name] = value
 
     def addGvAttribute(self, attr, value):
         self.__gv_attributes[str(attr)] = str(value)
@@ -37,11 +37,10 @@ class Node(object):
         return self.__gv_attributes
 
     def prepare(self):
-        self.__label = "Name: " + self.__name + "\n" + "Type: " + self.__disk_type + "\n"
+        self.__label = "Name: " + self.__name + "\n" + "Type: " + self.__disk_type + "\n" + "Format(FS): " + str(self.__attributes.pop("format",{"format" : "None"}).type) + "\n"
         for k, v in self.__attributes.items():
             self.__label = self.__label + str(k) + ": " + str(v) + "\n"
         self.addGvAttribute("label", self.__label)
-        self.addGvAttribute("comment","comment")
 
     def change_color(self, color):
         self.change_style_safely("filled")

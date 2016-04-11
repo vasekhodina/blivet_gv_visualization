@@ -15,10 +15,3 @@ class Pallete:
         for color in colorset_element:
             colorset[color.get("nr")] = "#" + color.get("rgb")
         return colorset
-
-p = Pallete()
-print(p.primary)
-print(p.primary["1"])
-print(p.secondary_first)
-print(p.secondary_second)
-print(p.complement)

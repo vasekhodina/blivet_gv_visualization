@@ -1,9 +1,13 @@
 import blivet.blivet
 import node
 import edge
+import pallete
 
 
 class GvInput:
+
+    def __init__(self):
+        self.pallete = pallete.Pallete()
     def getDataFromBlivet(self, node_list, edge_list):
         blacklist = ["cdrom"]
         blvt = blivet.Blivet()
@@ -43,35 +47,35 @@ class GvInput:
 
     def nodeIsHarddrive(self, node):
         node.change_shape("Msquare")
-        node.change_color("#5CDD5C")
+        node.change_color(self.pallete.secondary_first["4"])
 
     def nodeIsPartition(self, node):
         node.change_shape("box")
-        node.change_color("lightgreen")
+        node.change_color(self.pallete.secondary_first["2"])
 
     def nodeIsLV(self, node):
         node.change_shape("rounded-box")
-        node.change_color("turquoise")
+        node.change_color(self.pallete.secondary_first["2"])
 
     def nodeIsVG(self, node):
-        node.change_color("lightblue")
+        node.change_color(self.pallete.secondary_first["3"])
 
     def nodeIsLuks(self, node):
-        node.change_color("lightskyblue")
+        node.change_color(self.pallete.secondary_first["0"])
 
     def nodeIsBTRFS(self, node):
         node.change_shape("hexagon")
-        node.change_color("turquoise")
+        node.change_color(self.pallete.secondary_first["2"])
 
     def nodeIsLVMThinPool(self, node):
-        node.change_color("blueviolet")
+        node.change_color(self.pallete.secondary_first["1"])
 
     def nodeIsLVMThinLv(self,node):
         node.change_shape("rounded-box")
-        node.change_color("darkorchid") 
+        node.change_color(self.pallete.secondary_first["1"]) 
 
     def nodeIsMDRAID():
-        node.change_color("sandybrown")
+        node.change_color(self.pallete.secondary_first["0"])
         node.change_shape("octagon")
 
     # def getDataFromXML():

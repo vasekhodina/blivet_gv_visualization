@@ -4,7 +4,6 @@ function zoomNode(node){
         node.setAttribute("zoomed","0")
     }
     text_elements=node.getElementsByTagName("text")
-    console.log(text_elements)
     if (node.getAttribute("zoomed") == "0"){
         node.parentNode.appendChild(node);
         x=text_elements[0].getAttribute("x")

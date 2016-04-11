@@ -45,7 +45,6 @@ class Output:
             element.set("onclick","zoomNode(this)")
             pos = 0
             for text_subelement in element:
-                print(text_subelement.tag)
                 if text_subelement.tag == "{http://www.w3.org/2000/svg}text":
                     if pos < 3:
                         text_subelement.set("font-size", "18.00")

@@ -44,6 +44,8 @@ class GvInput:
             self.nodeIsBTRFS(node)
         if node.getType() == "mdarray":
             self.nodeIsMDRAID() 
+		if node.getType() == "lvmsnapshot":
+			self.nodeIsLVMSnapshot()
 
     def nodeIsHarddrive(self, node):
         node.change_shape("Msquare")
@@ -77,5 +79,9 @@ class GvInput:
     def nodeIsMDRAID():
         node.change_color(self.pallete.secondary_first["0"])
         node.change_shape("octagon")
+
+    def nodeIsLVMSnapshot():
+        node.change_color(self.pallete.secondaty_first["3"])
+        node.change_shape("rounded-box")
 
     # def getDataFromXML():

@@ -43,9 +43,9 @@ class GvInput:
         if node.getType() == "btrfs volume":
             self.nodeIsBTRFS(node)
         if node.getType() == "mdarray":
-            self.nodeIsMDRAID() 
-		if node.getType() == "lvmsnapshot":
-			self.nodeIsLVMSnapshot()
+            self.nodeIsMDRAID(node) 
+        if node.getType() == "lvmsnapshot":
+            self.nodeIsLVMSnapshot()
 
     def nodeIsHarddrive(self, node):
         node.change_shape("Msquare")

@@ -6,46 +6,57 @@ import pallete
 
 class GvInput:
 
-    def __init__(self):
+    def __init__(self, node_list, edge_list, blvt = ""):
         self.pallete = pallete.Pallete()
-    def getDataFromBlivet(self, node_list, edge_list):
+        self.node_list = node_list
+        self.edge_list = edge_list
+    def getDataFromBlivet(self):
         blacklist = ["cdrom"]
-        blvt = blivet.Blivet()
-        blvt.reset()
+        if blvt == "":
+            blvt = blivet.Blivet()
+            blvt.reset()
         for n in blvt.devices:
             if n.type not in blacklist:
                 node_to_be_added = node.Node(n.name, n.type, n.format, n.size, n.path, n.uuid)
-                self.processNode(node_to_be_added)
-                node_list.append(node_to_be_added)
+                self.processNode(node_to_be_added,n)
+                self.node_list.append(node_to_be_added)
                 print("Adding device, Name: " + n.name + " Type: " + n.type)
                 for parent in n.parents:
                     if parent.type == "luks//dm-crypt":
                         edge_to_be_added = edge.Edge(parent.parents[0].name, n.name)
                     else:
                         edge_to_be_added = edge.Edge(parent.name, n.name)
-                        edge_list.append(edge_to_be_added)
+                        self.edge_list.append(edge_to_be_added)
 
-    def processNode(self, node):
+    def processNode(self, node, device):
         if node.getType() == "luks/dm-crypt":
             self.nodeIsLuks(node)
         if node.getType() == "disk":
             self.nodeIsHarddrive(node)
+            if (node.format.type == "disklabel"):
+                node.addAttribute("format", node.format.labelType)
         if node.getType() == "partition":
             self.nodeIsPartition(node)
         if node.getType() == "lvmlv":
             self.nodeIsLV(node)
+            if (device.cached):
+                node.addAttribute("cached", "True")
         if node.getType() == "lvmvg":
             self.nodeIsVG(node)
         if node.getType() == "lvmthinpool":
             self.nodeIsLVMThinPool(node)
         if node.getType() == "lvmthinlv":
             self.nodeIsLVMThinLv(node)
+            if (device.cached):
+                node.addAttribute("cached", "True")
         if node.getType() == "btrfs volume":
             self.nodeIsBTRFS(node)
         if node.getType() == "mdarray":
             self.nodeIsMDRAID(node) 
         if node.getType() == "lvmsnapshot":
             self.nodeIsLVMSnapshot()
+            edge = edge.Edge(node.getName(), device.origin.name)
+            self.edge_list.append(edge)
 
     def nodeIsHarddrive(self, node):
         node.change_shape("Msquare")

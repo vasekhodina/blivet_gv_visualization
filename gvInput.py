@@ -56,43 +56,54 @@ class GvInput:
         if node.getType() == "lvmsnapshot":
             self.nodeIsLVMSnapshot()
             edge = edge.Edge(node.getName(), device.origin.name)
+            edge.addGvAttribute("style", "dashed")
             self.edge_list.append(edge)
 
     def nodeIsHarddrive(self, node):
         node.change_shape("Msquare")
         node.change_color(self.pallete.secondary_first["4"])
+        node.addSecAttribute("color_brightness", "4")
 
     def nodeIsPartition(self, node):
         node.change_shape("box")
         node.change_color(self.pallete.secondary_first["2"])
+        node.addSecAttribute("color_brightness", "secondary_first-4")
 
     def nodeIsLV(self, node):
         node.change_shape("rounded-box")
         node.change_color(self.pallete.secondary_first["2"])
+        node.addSecAttribute("color_brightness", "2")
 
     def nodeIsVG(self, node):
         node.change_color(self.pallete.secondary_first["3"])
+        node.addSecAttribute("color_brightness", "3")
 
     def nodeIsLuks(self, node):
         node.change_color(self.pallete.secondary_first["0"])
+        node.addSecAttribute("color_brightness", "0")
 
     def nodeIsBTRFS(self, node):
         node.change_shape("hexagon")
         node.change_color(self.pallete.secondary_first["2"])
+        node.addSecAttribute("color_brightness", "2")
 
     def nodeIsLVMThinPool(self, node):
         node.change_color(self.pallete.secondary_first["1"])
+        node.addSecAttribute("color_brightness", "1")
 
     def nodeIsLVMThinLv(self,node):
         node.change_shape("rounded-box")
         node.change_color(self.pallete.secondary_first["1"]) 
+        node.addSecAttribute("color_brightness", "1")
 
     def nodeIsMDRAID():
         node.change_color(self.pallete.secondary_first["0"])
         node.change_shape("octagon")
+        node.addSecAttribute("color_brightness", "0")
 
     def nodeIsLVMSnapshot():
         node.change_color(self.pallete.secondaty_first["3"])
         node.change_shape("rounded-box")
+        node.addSecAttribute("color_brightness", "3")
 
     # def getDataFromXML():

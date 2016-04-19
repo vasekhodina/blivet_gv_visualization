@@ -6,6 +6,7 @@ class Node(object):
         self.__gv_attributes = {}
         self.__attributes = {}
         self.__label = ""
+        self.sec_attributes = {}
         if format is not None:
             self.addAttribute('format', format)
         if size is not None:
@@ -21,11 +22,16 @@ class Node(object):
     def setType(self,disk_type):
         self.__disk_type = disk_type
 
-    def addAttribute(self,attribute_name, value):
-        self.__attributes[attribute_name] = value
+    def addAttribute(self, attribute_name, value):
+        if attribute_name == "action" and self.__attributes.get(["action"], None) is not None:
+            self.addAttribute("action", self.__gv_attributes["action"] +  ", " + str(value))
+        self.__attributes[str(attribute_name)] = str(value)
 
     def addGvAttribute(self, attr, value):
         self.__gv_attributes[str(attr)] = str(value)
+
+    def addSecAttribute(self, attr, value):
+        self.sec_attributes[str(attr)] = str(value)
 
     def getName(self):
         return self.__name
@@ -37,7 +43,8 @@ class Node(object):
         return self.__gv_attributes
 
     def prepare(self):
-        self.__label = "Name: " + self.__name + "\n" + "Type: " + self.__disk_type + "\n" + "Format(FS): " + str(self.__attributes.pop("format",{"format" : "None"}).type) + "\n"
+        self.__label = "Name: " + self.__name + "\n" + "Type: " + self.__disk_type +
+        "\n" + "Format(FS): " + str(self.__attributes.pop("format",{"format" : "None"}).type) + "\n"
         for k, v in self.__attributes.items():
             self.__label = self.__label + str(k) + ": " + str(v) + "\n"
         self.addGvAttribute("label", self.__label)

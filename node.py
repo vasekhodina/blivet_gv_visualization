@@ -43,8 +43,7 @@ class Node(object):
         return self.__gv_attributes
 
     def prepare(self):
-        self.__label = "Name: " + self.__name + "\n" + "Type: " + self.__disk_type +
-        "\n" + "Format(FS): " + str(self.__attributes.pop("format",{"format" : "None"}).type) + "\n"
+        self.__label = "Name: " + self.__name + "\n" + "Type: " + self.__disk_type + "\n" + "Format(FS): " + str(self.__attributes.pop("format",{"format" : "None"})) + "\n"
         for k, v in self.__attributes.items():
             self.__label = self.__label + str(k) + ": " + str(v) + "\n"
         self.addGvAttribute("label", self.__label)

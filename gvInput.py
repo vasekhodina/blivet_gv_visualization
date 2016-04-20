@@ -10,14 +10,17 @@ class GvInput:
         self.pallete = pallete.Pallete()
         self.node_list = node_list
         self.edge_list = edge_list
+        if blvt == "": 
+            self.blvt = blivet.Blivet()
+        else:
+            self.blvt = blvt
+
     def getDataFromBlivet(self):
         blacklist = ["cdrom"]
-        if blvt == "":
-            blvt = blivet.Blivet()
-            blvt.reset()
-        for n in blvt.devices:
+        self.blvt.reset()
+        for n in self.blvt.devices:
             if n.type not in blacklist:
-                node_to_be_added = node.Node(n.name, n.type, n.format, n.size, n.path, n.uuid)
+                node_to_be_added = node.Node(n.name, n.type, n.format.type, n.size, n.path, n.uuid)
                 self.processNode(node_to_be_added,n)
                 self.node_list.append(node_to_be_added)
                 print("Adding device, Name: " + n.name + " Type: " + n.type)
@@ -33,8 +36,8 @@ class GvInput:
             self.nodeIsLuks(node)
         if node.getType() == "disk":
             self.nodeIsHarddrive(node)
-            if (node.format.type == "disklabel"):
-                node.addAttribute("format", node.format.labelType)
+            if (device.format.type == "disklabel"):
+                node.addAttribute("format", device.format.labelType)
         if node.getType() == "partition":
             self.nodeIsPartition(node)
         if node.getType() == "lvmlv":

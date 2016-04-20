@@ -17,8 +17,8 @@ class Visualization(object):
     def createGraph(self, graph_name, graph_abs_path):
         if not os.path.exists(graph_abs_path):
             os.mkdir(graph_abs_path)  
-        gv_input = gvInput.GvInput()
-        gv_input.getDataFromBlivet(self.node_list, self.edge_list)
+        gv_input = gvInput.GvInput(self.node_list, self.edge_list)
+        gv_input.getDataFromBlivet()
         self.prepareNodes()
         out = output.Output(self.node_list, self.edge_list)
         out.createSvg(graph_name, graph_abs_path)

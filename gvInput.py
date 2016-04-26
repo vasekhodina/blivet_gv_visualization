@@ -5,6 +5,7 @@ import pallete
 
 
 class GvInput:
+    """ Class for loading data from blivet """
 
     def __init__(self, node_list, edge_list, blvt = ""):
         self.pallete = pallete.Pallete()
@@ -16,6 +17,7 @@ class GvInput:
             self.blvt = blvt
 
     def getDataFromBlivet(self):
+        """ Function that loads data from blivet. Uses attributes of GvInput object."""
         blacklist = ["cdrom"]
         self.blvt.reset()
         for n in self.blvt.devices:
@@ -32,6 +34,9 @@ class GvInput:
                         self.edge_list.append(edge_to_be_added)
 
     def processNode(self, node, device):
+        """ Sorts node based on it's type and starts command related to it.
+        :param obj node node that should be sorted
+        :param obj device the device from which the node originated, used for getting aditional information"""
         if node.getType() == "luks/dm-crypt":
             self.nodeIsLuks(node)
         if node.getType() == "disk":
@@ -57,7 +62,7 @@ class GvInput:
         if node.getType() == "mdarray":
             self.nodeIsMDRAID(node) 
         if node.getType() == "lvmsnapshot":
-            self.nodeIsLVMSnapshot()
+            self.nodeIsLVMSnapshot(node)
             edge = edge.Edge(node.getName(), device.origin.name)
             edge.addGvAttribute("style", "dashed")
             self.edge_list.append(edge)
@@ -99,12 +104,12 @@ class GvInput:
         node.change_color(self.pallete.secondary_first["1"]) 
         node.addSecAttribute("color_brightness", "1")
 
-    def nodeIsMDRAID():
+    def nodeIsMDRAID(self,node):
         node.change_color(self.pallete.secondary_first["0"])
         node.change_shape("octagon")
         node.addSecAttribute("color_brightness", "0")
 
-    def nodeIsLVMSnapshot():
+    def nodeIsLVMSnapshot(self,node):
         node.change_color(self.pallete.secondaty_first["3"])
         node.change_shape("rounded-box")
         node.addSecAttribute("color_brightness", "3")

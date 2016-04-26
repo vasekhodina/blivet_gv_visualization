@@ -110,7 +110,7 @@ class GvInput:
         node.addSecAttribute("color_brightness", "0")
 
     def nodeIsLVMSnapshot(self,node):
-        node.change_color(self.pallete.secondaty_first["3"])
+        node.change_color(self.pallete.secondary_first["3"])
         node.change_shape("rounded-box")
         node.addSecAttribute("color_brightness", "3")
 

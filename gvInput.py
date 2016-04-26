@@ -63,9 +63,9 @@ class GvInput:
             self.nodeIsMDRAID(node) 
         if node.getType() == "lvmsnapshot":
             self.nodeIsLVMSnapshot(node)
-            edge = edge.Edge(node.getName(), device.origin.name)
-            edge.addGvAttribute("style", "dashed")
-            self.edge_list.append(edge)
+            new_edge = edge.Edge(node.getName(), device.origin.name)
+            new_edge.addGvAttribute("style", "dashed")
+            self.edge_list.append(new_edge)
 
     def nodeIsHarddrive(self, node):
         node.change_shape("Msquare")

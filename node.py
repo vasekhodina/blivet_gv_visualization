@@ -29,8 +29,10 @@ class Node(object):
         which sets graphviz visualization attributes. 
         :param str attribute_name name of the attribute
         :param value the value of the attribute that should be set up"""
-        if attribute_name == "action" and self.__attributes.get(["action"], None) is not None:
-            self.addAttribute("action", self.__gv_attributes["action"] +  ", " + str(value))
+        if attribute_name == "action" and self.__attributes.get("action", None) is not None:
+            old_action = self.__attributes["action"]
+            del self.__attributes["action"]
+            self.addAttribute("action", old_action +  ", " + str(value))
         self.__attributes[str(attribute_name)] = str(value)
 
     def addGvAttribute(self, attr, value):

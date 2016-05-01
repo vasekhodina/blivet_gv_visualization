@@ -13,7 +13,6 @@ class ActionsProcessor():
 
     def processActions(self):
         """ Main method for processing actions """
-        print("Actions:")
         for action in self.actions:
             found_node = self.find_node(action.device.name)
             if not found_node:
@@ -26,21 +25,25 @@ class ActionsProcessor():
         :param obj action The action to be processed.
         :param obj node The node to be changed."""
         if action.isDestroy or isRemove:
+            print("Adding action: Delete for node: " + node.getName())
             node.addAttribute("action", "Delete")
             node.change_color(self.pallete.complement["2"])
         if action.isCreate or action.isAdd:
+            print("Adding action: Add for node: " + node.getName())
             node.addAttribute("action", "Add")
             node.change_color(self.pallete.primary["2"])
         if action.isResize or action.isShrink or action.isGrow:
-            node.addAttribute("action", "Modify")
+            print("Adding action: Resize for node: " + node.getName())
+            node.addAttribute("action", "Resize")
             node.change_color(self.pallete.secondary_first["2"])
         if action.isFormat:
+            print("Adding action: Format for node: " + node.getName())
             node.addAttribute("action", "Format")
             node.change_color(self.pallete.secondary_first["2"])
 
     def find_node(self, dev_name):
         """ Helper function that searches node_list for a node using it's name
-            :param str dev_name The name of node / device that should be looked up.
+            :param str dev_name The name of node / device that should be looked up."""
         print("In find_node")
         for found_node in self.node_list:
             print("Checking: " + found_node.getName() +  " and " + dev_name)

@@ -9,7 +9,6 @@ class Visualization(object):
     """Main class of the program, holds the important data (node and edge lists)."""
     def __init__(self, blivet=""):
         self.blivet = blivet
-        print(self.blivet)
         self.node_list = []
         self.edge_list = []
 

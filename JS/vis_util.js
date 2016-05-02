@@ -30,7 +30,12 @@ function zoom_in(node){
         text_elements[i].removeAttribute("transform")
     }
     for (i=3; i<text_elements.length;i++){
-        text_elements[i].setAttribute("visibility","visible")
+        if (text_elements[i].search("action") != -1){
+            text_elements[i].setAttribute("font-size", "14.00")
+            text_elements[i].removeAttribute("transform")
+        } else {
+            text_elements[i].setAttribute("visibility","visible")
+        }
     }
 }
 
@@ -45,6 +50,11 @@ function zoom_out(node){
         text_elements[i].setAttribute("transform","translate(0 "+transform_x+")")
     }
     for (i=3; i<text_elements.length;i++){
-        text_elements[i].setAttribute("visibility","hidden")
+        if (text_elements[i].search("action") != -1){
+            text_elements[i].setAttribute("font-size", "18.00")
+            text_elements[i].setAttribute("transform", "translate(0 40)")
+        } else {
+            text_elements[i].setAttribute("visibility","hidden")
+        }
     }
 }

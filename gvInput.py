@@ -1,3 +1,5 @@
+import emoji
+
 import blivet.blivet
 import node
 import edge

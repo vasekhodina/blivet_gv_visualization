@@ -15,7 +15,7 @@ class Node(object):
             self.addAttribute('size', size)
         if path is not None:
             self.addAttribute('path', path )
-        if uuid is not None:
+        if uuid is not None or not uuid == "None" or not uuid == "\n" or not uuid == "":
             self.addAttribute('uuid', uuid )
 
     def setName(self,name):
@@ -33,7 +33,8 @@ class Node(object):
             old_action = self.__attributes["action"]
             del self.__attributes["action"]
             self.addAttribute("action", old_action +  ", " + str(value))
-        self.__attributes[str(attribute_name)] = str(value)
+        else:
+            self.__attributes[str(attribute_name)] = str(value)
 
     def addGvAttribute(self, attr, value):
         """ Function that serves to ease the task of setting visualization attributes of node. Do not confuse with 

@@ -1,3 +1,4 @@
+import emoji
 import pallete
 import node
 import gvInput
@@ -24,24 +25,27 @@ class ActionsProcessor():
         """ Helper function for processing actions, finds out what does each action do and sets the appropriate attributed of the node
         :param obj action The action to be processed.
         :param obj node The node to be changed."""
-        if action.isDestroy or isRemove:
+        if action.isFormat:
+            print("Adding action: Format for node: " + node.getName())
+            node.addAttribute("action", "Re-Format")
+            node.change_color(self.pallete.secondary_first["2"])
+            node.add_emoji(emoji.emojize(":wrench:"))
+            return
+        if action.isDestroy or action.isRemove:
             print("Adding action: Delete for node: " + node.getName())
             node.addAttribute("action", "Delete")
             node.change_color(self.pallete.complement["2"])
             node.add_emoji(emoji.emojize(":fire:"))
+            return
         if action.isCreate or action.isAdd:
             print("Adding action: Add for node: " + node.getName())
             node.addAttribute("action", "Add")
             node.change_color(self.pallete.primary["2"])
-            node.add_emoji(emoji.emojize(":construction:"))
+            node.add_emoji(emoji.emojize(":building_construction:"))
+            return
         if action.isResize or action.isShrink or action.isGrow:
             print("Adding action: Resize for node: " + node.getName())
             node.addAttribute("action", "Resize")
-            node.change_color(self.pallete.secondary_first["2"])
-            node.add_emoji(emoji.emojize(":wrench:"))
-        if action.isFormat:
-            print("Adding action: Format for node: " + node.getName())
-            node.addAttribute("action", "Format")
             node.change_color(self.pallete.secondary_first["2"])
             node.add_emoji(emoji.emojize(":wrench:"))
 

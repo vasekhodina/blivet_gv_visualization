@@ -66,6 +66,10 @@ class Output:
                         text_subelement.set("font-size", "18.00")
                         text_subelement.set("transform", "translate(0, " + str(pos*10) + ")")
                         pos += 1
+                    elif pos == 3 and text_subelement.text.find("Format") > -1:
+                        text_subelement.set("font-size", "18.00")
+                        text_subelement.set("transform", "translate(0, " + str(pos*10) + ")")
+                        pos += 1
                     else:
                         text_subelement.set("visibility", "hidden")
                         pos += 1

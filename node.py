@@ -8,7 +8,7 @@ class Node(object):
         self.__gv_attributes = {}
         self.__attributes = {}
         self.__label = ""
-        self.sec_attributes = {}
+        self.emojis = ""
         if format is not None:
             self.addAttribute('format', format)
         if size is not None:
@@ -42,12 +42,11 @@ class Node(object):
         :param value the value of the attribute that should be set up"""
         self.__gv_attributes[str(attr)] = str(value)
 
-    def addSecAttribute(self, attr, value):
+    def add_emoji(self, value):
         """ Function that serves to ease the task of setting attributes of node. Serves only for setting attributes you
         do not want visible anywhere.
-        :param str attribute_name name of the attribute
-        :param value the value of the attribute that should be set up"""
-        self.sec_attributes[str(attr)] = str(value)
+        :param str value The value of the attribute that should be set up."""
+        self.emojis = self.emojis + value
 
     def getName(self):
         return self.__name
@@ -60,9 +59,11 @@ class Node(object):
 
     def prepare(self):
         """ Prepares the node for visualization, ie. puts all the attributes into node label so they are visible in the graph."""
-        self.__label = "Name: " + self.__name + "\n" + "Type: " + self.__disk_type + "\n" + "Format(FS): " + str(self.__attributes.pop("format",{"format" : "None"})) + "\n"
+        if not self.emojis == "":
+            self.__label = self.emojis + "\n"
+        self.__label = self.__label + "Name: " + self.__name + "\nType: " + self.__disk_type + "\nFormat(FS): " + str(self.__attributes.pop("format",{"format" : "None"}))
         for k, v in self.__attributes.items():
-            self.__label = self.__label + str(k) + ": " + str(v) + "\n"
+            self.__label = self.__label + "\n" + str(k) + ": " + str(v)
         self.addGvAttribute("label", self.__label)
 
     def change_color(self, color):

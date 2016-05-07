@@ -28,18 +28,22 @@ class ActionsProcessor():
             print("Adding action: Delete for node: " + node.getName())
             node.addAttribute("action", "Delete")
             node.change_color(self.pallete.complement["2"])
+            node.add_emoji(emoji.emojize(":fire:"))
         if action.isCreate or action.isAdd:
             print("Adding action: Add for node: " + node.getName())
             node.addAttribute("action", "Add")
             node.change_color(self.pallete.primary["2"])
+            node.add_emoji(emoji.emojize(":construction:"))
         if action.isResize or action.isShrink or action.isGrow:
             print("Adding action: Resize for node: " + node.getName())
             node.addAttribute("action", "Resize")
             node.change_color(self.pallete.secondary_first["2"])
+            node.add_emoji(emoji.emojize(":wrench:"))
         if action.isFormat:
             print("Adding action: Format for node: " + node.getName())
             node.addAttribute("action", "Format")
             node.change_color(self.pallete.secondary_first["2"])
+            node.add_emoji(emoji.emojize(":wrench:"))
 
     def find_node(self, dev_name):
         """ Helper function that searches node_list for a node using it's name

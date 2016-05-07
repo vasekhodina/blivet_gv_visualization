@@ -25,11 +25,16 @@ function zoom_in(node){
     node.setAttribute("transform","translate(" + -x + "," + -y + ") scale(2)");
     node.setAttribute("zoomed","1");
 
-    for (i=0; i<3;i++){
+    if (text_elements[0].firstChild.nodeValue.indexOf("Name") != -1){
+        line_divisor = 3
+    } else {
+        line_divisor = 4
+    }
+    for (i=0; i<line_divisor;i++){
         text_elements[i].setAttribute("font-size","14.00")
         text_elements[i].removeAttribute("transform")
     }
-    for (i=3; i<text_elements.length;i++){
+    for (i=line_divisor; i<text_elements.length;i++){
         if (text_elements[i].firstChild.nodeValue.indexOf("action") != -1){
             text_elements[i].setAttribute("font-size", "14.00")
             text_elements[i].removeAttribute("transform")
@@ -44,15 +49,20 @@ function zoom_out(node){
     node.setAttribute("zoomed","0");
 
     var text_elements=node.getElementsByTagName("text")
-    for (i=0; i<3;i++){
+    if (text_elements[0].firstChild.nodeValue.indexOf("Name") != -1){
+        line_divisor = 3
+    } else {
+        line_divisor = 4
+    }
+    for (i=0; i<line_divisor;i++){
         var transform_x = i*10;
         text_elements[i].setAttribute("font-size","18.00")
         text_elements[i].setAttribute("transform","translate(0 "+transform_x+")")
     }
-    for (i=3; i<text_elements.length;i++){
+    for (i=line_divisor; i<text_elements.length;i++){
         if (text_elements[i].firstChild.nodeValue.indexOf("action") != -1){
             text_elements[i].setAttribute("font-size", "18.00")
-            text_elements[i].setAttribute("transform", "translate(0 40)")
+            text_elements[i].setAttribute("transform", "translate(0 " + (line_divisor+1)*10 + ")")
         } else {
             text_elements[i].setAttribute("visibility","hidden")
         }

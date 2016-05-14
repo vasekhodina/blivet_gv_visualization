@@ -1,8 +1,8 @@
 import xml.etree.ElementTree as ET
 
 class Pallete:
-    def __init__(self):
-        tree = ET.parse("assets/pallete.xml")
+    def __init__(self, path_to_pallete):
+        tree = ET.parse(path_to_pallete)
         self.root = tree.getroot()
         self.primary = self.fill_colorset("primary")
         self.secondary_first = self.fill_colorset("secondary-1")

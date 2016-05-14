@@ -32,7 +32,7 @@ class Node(object):
         if attribute_name == "action" and self.__attributes.get("action", None) is not None:
             old_action = self.__attributes["action"]
             del self.__attributes["action"]
-            self.addAttribute("action", old_action +  ", " + str(value))
+            self.addAttribute("action", old_action +  " " + str(value))
         else:
             self.__attributes[str(attribute_name)] = str(value)
 
@@ -92,4 +92,3 @@ class Node(object):
             oldstyle = self.getGvAttributes()["style"]
             del self.__gv_attributes["style"]
             self.addGvAttribute("style", oldstyle + ", " + style) 
-            print(oldstyle)

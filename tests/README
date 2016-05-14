@@ -1,0 +1,1 @@
+All tests should be run with root privileges ie. sudo python3 some_test_file.py

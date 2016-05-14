@@ -7,10 +7,11 @@ import actionsProcessor
 
 class Visualization(object):
     """Main class of the program, holds the important data (node and edge lists)."""
-    def __init__(self, blivet=""):
+    def __init__(self, blivet=None, palletePath="assets/pallete.xml"):
         self.blivet = blivet
         self.node_list = []
         self.edge_list = []
+        self.palletePath = palletePath
 
     def prepareNodes(self):
         """ prepare the nodes in node_list """
@@ -25,7 +26,7 @@ class Visualization(object):
         """
         if not os.path.exists(graph_abs_path):
             os.mkdir(graph_abs_path)  
-        gv_input = gvInput.GvInput(self.node_list, self.edge_list, self.blivet)
+        gv_input = gvInput.GvInput(self.node_list, self.edge_list, self.palletePath, self.blivet)
         gv_input.getDataFromBlivet()
         self.prepareNodes()
         out = output.Output(self.node_list, self.edge_list)
@@ -39,10 +40,10 @@ class Visualization(object):
         """
         if not os.path.exists(graph_abs_path):
             os.mkdir(graph_abs_path)  
-        gv_input = gvInput.GvInput(self.node_list, self.edge_list, self.blivet)
+        gv_input = gvInput.GvInput(self.node_list, self.edge_list, self.palletePath, self.blivet)
         gv_input.getDataFromBlivet()
         print(self.blivet.devicetree.actions.find())
-        actions_processor = actionsProcessor.ActionsProcessor(self.blivet.devicetree.actions.find(), self.node_list, self.edge_list)
+        actions_processor = actionsProcessor.ActionsProcessor(self.blivet.devicetree.actions.find(), self.node_list, self.edge_list, self.palletePath)
         actions_processor.processActions()
         self.prepareNodes()
         out = output.Output(self.node_list, self.edge_list)

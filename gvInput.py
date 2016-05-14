@@ -9,8 +9,8 @@ import pallete
 class GvInput:
     """ Class for loading data from blivet """
 
-    def __init__(self, node_list, edge_list, blvt = ""):
-        self.pallete = pallete.Pallete()
+    def __init__(self, node_list, edge_list, path_to_pallete, blvt = ""):
+        self.pallete = pallete.Pallete(path_to_pallete)
         self.node_list = node_list
         self.edge_list = edge_list
         if blvt == "": 
@@ -32,12 +32,14 @@ class GvInput:
         :param obj node node that should be sorted
         :param obj device the device from which the node originated, used for getting aditional information"""
         print("Adding device, Name: " + device.name + " Type: " + device.type)
+        # Adding entries that are present for all nodes
+        if (device.encrypted):
+            node.add_emoji(emoji.emojize(":lock:"))
+        else:
+            node.add_emoji(emoji.emojize(":open_lock:"))
+        # End of common entries
         if node.getType() == "luks/dm-crypt":
             self.nodeIsLuks(node)
-            if (device.encrypted):
-                node.add_emoji(emoji.emojize(":lock:"))
-            else:
-                node.add_emoji(emoji.emojize(":open_lock:"))
         if node.getType() == "disk":
             self.nodeIsHarddrive(node)
             if (device.format.type == "disklabel"):

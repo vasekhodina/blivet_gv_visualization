@@ -5,12 +5,12 @@ import gvInput
 
 class ActionsProcessor():
     """ Class containing neccessary methods for putting actions scheduled by blivet into graph"""
-    def __init__(self, actions_list, node_list, edge_list):
+    def __init__(self, actions_list, node_list, edge_list, path_to_pallete):
         self.actions = actions_list
         self.node_list = node_list
         self.edge_list = edge_list
-        self.pallete = pallete.Pallete()
-        self.gv_input = gvInput.GvInput(node_list, edge_list)
+        self.pallete = pallete.Pallete(path_to_pallete)
+        self.gv_input = gvInput.GvInput(node_list, edge_list, path_to_pallete)
 
     def processActions(self):
         """ Main method for processing actions """
@@ -26,26 +26,24 @@ class ActionsProcessor():
         :param obj action The action to be processed.
         :param obj node The node to be changed."""
         if action.isFormat:
-            print("Adding action: Format for node: " + node.getName())
-            node.addAttribute("action", "Re-Format")
-            node.change_color(self.pallete.secondary_first["2"])
-            node.add_emoji(emoji.emojize(":wrench:"))
-            return
+            node.add_emoji("Fmt:")
+            node.addAttribute("action", "Format")
+        else:
+            node.add_emoji("Dev:")
+            node.addAttribute("action", "Device")
         if action.isDestroy or action.isRemove:
             print("Adding action: Delete for node: " + node.getName())
-            node.addAttribute("action", "Delete")
+            node.addAttribute("action", "delete")
             node.change_color(self.pallete.complement["2"])
             node.add_emoji(emoji.emojize(":fire:"))
-            return
         if action.isCreate or action.isAdd:
             print("Adding action: Add for node: " + node.getName())
-            node.addAttribute("action", "Add")
+            node.addAttribute("action", "add")
             node.change_color(self.pallete.primary["2"])
             node.add_emoji(emoji.emojize(":building_construction:"))
-            return
         if action.isResize or action.isShrink or action.isGrow:
             print("Adding action: Resize for node: " + node.getName())
-            node.addAttribute("action", "Resize")
+            node.addAttribute("action", "resize")
             node.change_color(self.pallete.secondary_first["2"])
             node.add_emoji(emoji.emojize(":wrench:"))
 

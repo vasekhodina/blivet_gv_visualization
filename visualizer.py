@@ -5,7 +5,7 @@ import output
 import actionsProcessor
 
 
-class Visualization(object):
+class Visualizer(object):
     """Main class of the program, holds the important data (node and edge lists)."""
     def __init__(self, blivet=None, palletePath="assets/pallete.xml"):
         self.blivet = blivet

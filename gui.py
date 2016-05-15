@@ -42,10 +42,16 @@ class Gui(Gtk.Window):
     def on_button_clicked(self, widget):
         self.webview.open("file://localhost" + path.abspath(self.VAR_DIR) + "/" + self.GRAPH_NAME + ".svg")
 
+    def show(self):
+        win.connect("delete-event", Gtk.main_quit)
+        win.show_all()
+        Gtk.main()
+
 # create and run the application, exit with the value returned by
 # running the program
 if __name__ == "__main__":
-    win = Gui()
-    win.connect("delete-event", Gtk.main_quit)
-    win.show_all()
-    Gtk.main()
+   win = Gui()
+   win.show()
+   #win.connect("delete-event", Gtk.main_quit)
+   #win.show_all()
+   #Gtk.main()

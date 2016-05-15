@@ -1,4 +1,4 @@
-import visualization
+import visualizer
 import sys
 from os import path
 
@@ -37,14 +37,15 @@ class Gui(Gtk.Window):
         hscrollbar = Gtk.Scrollbar(orientation=Gtk.Orientation.HORIZONTAL, adjustment=hadjustment)
         self.grid.attach(hscrollbar, 0, 1, 1, 1)
 
-        self.vis = visualization.Visualization()
+        self.vis = visualizer.Visualizer()
         self.vis.createGraph(self.GRAPH_NAME, self.VAR_DIR) 
     def on_button_clicked(self, widget):
         self.webview.open("file://localhost" + path.abspath(self.VAR_DIR) + "/" + self.GRAPH_NAME + ".svg")
 
 # create and run the application, exit with the value returned by
 # running the program
-win = Gui()
-win.connect("delete-event", Gtk.main_quit)
-win.show_all()
-Gtk.main()
+if __name__ == "__main__":
+    win = Gui()
+    win.connect("delete-event", Gtk.main_quit)
+    win.show_all()
+    Gtk.main()

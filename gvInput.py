@@ -9,11 +9,11 @@ import pallete
 class GvInput:
     """ Class for loading data from blivet """
 
-    def __init__(self, node_list, edge_list, path_to_pallete, blvt = ""):
+    def __init__(self, node_list, edge_list, path_to_pallete, blvt=None): 
         self.pallete = pallete.Pallete(path_to_pallete)
         self.node_list = node_list
         self.edge_list = edge_list
-        if blvt == "": 
+        if blvt is None:
             self.blvt = blivet.Blivet()
             self.blvt.reset()
         else:

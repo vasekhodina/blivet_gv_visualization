@@ -28,7 +28,7 @@ class Output:
             new_node = graph.node(str(i.getName()), i.getGvAttributes()["label"],
                                   i.getGvAttributes())
         for i in edge_list:
-            graph.edge(str(i.getFrom()), str(i.getTo()), str(i.gv_attributes))
+            graph.edge(str(i.getFrom()), str(i.getTo()), i.gv_attributes)
         return graph
 
     def insert_JS_to_graph(self, graph_string):

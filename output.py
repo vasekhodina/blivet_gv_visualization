@@ -31,7 +31,7 @@ class Output:
             if i.gv_attributes is None:
                 graph.edge(str(i.getFrom()), str(i.getTo()))
             else:
-                graph.edge(str(i.getFrom()), str(i.getTo()), i.gv_attributes)
+                graph.edge(str(i.getFrom()), str(i.getTo()), _attributes=i.gv_attributes)
         return graph
 
     def insert_JS_to_graph(self, graph_string):

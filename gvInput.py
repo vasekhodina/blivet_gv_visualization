@@ -67,6 +67,7 @@ class GvInput:
             new_edge = edge.Edge(device.origin.name, node.getName())
             new_edge.addGvAttribute("style", "dashed")
             self.edge_list.append(new_edge)
+            node.addAttribute("Snap. origin",device.origin.name)
         self.node_list.append(node)
         for parent in device.parents:
             edge_to_be_added = edge.Edge(parent.name, device.name)

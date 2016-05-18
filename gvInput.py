@@ -64,7 +64,7 @@ class GvInput:
             self.nodeIsMDRAID(node) 
         if node.getType() == "lvmsnapshot":
             self.nodeIsLVMSnapshot(node)
-            new_edge = edge.Edge(node.getName(), device.origin.name)
+            new_edge = edge.Edge(device.origin.name, node.getName())
             new_edge.addGvAttribute("style", "dashed")
             self.edge_list.append(new_edge)
         self.node_list.append(node)

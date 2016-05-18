@@ -58,6 +58,9 @@ class Node(object):
     def getGvAttributes(self):
         return self.__gv_attributes
 
+    def getAttributes(self):
+        return self.__attributes
+
     def prepare(self):
         """ Prepares the node for visualization, ie. puts all the attributes into node label so they are visible in the graph."""
         if not self.emojis == "":

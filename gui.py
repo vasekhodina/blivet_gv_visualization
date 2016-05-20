@@ -1,5 +1,6 @@
 import visualizer
 import sys
+import getopt
 from os import path
 
 import gi
@@ -12,7 +13,7 @@ from gi.repository import Gtk, Rsvg, GdkPixbuf, WebKit
 # TODO Clean up this flippin mess
 class Gui(Gtk.Window):
     def __init__(self):
-        self.VAR_DIR = "./var/"
+        self.VAR_DIR = "./output/"
         self.GRAPH_NAME = "degraf"
         Gtk.Window.__init__(self, title="Disk data visualization")
         self.webview = WebKit.WebView()
@@ -43,15 +44,46 @@ class Gui(Gtk.Window):
         self.webview.open("file://localhost" + path.abspath(self.VAR_DIR) + "/" + self.GRAPH_NAME + ".svg")
 
     def show(self):
-        win.connect("delete-event", Gtk.main_quit)
-        win.show_all()
+        self.connect("delete-event", Gtk.main_quit)
+        self.show_all()
         Gtk.main()
+
+
+def usage():
+    print("How to use:")
+    print("-h or --help: Prints this message.")
+    print("-g or --gui: Starts the program in gui mode.")
+    print("-d or --dir: Sets up the output directory.")
+    print("  Example: sudo python3 gui.py -d output/")
+    print("  Creates directory output and puts the graph.svg there")
+    print("-n or --name: Sets up the name of output file.")
+    print("  Example: sudo python3 gui.py -n graph")
+    print("  Creates file called graph.svg")
 
 # create and run the application, exit with the value returned by
 # running the program
+# TODO Make the program react to the options
+def main():
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "hgd:n:", ["help", "gui", "dir=", "name="])
+    except getopt.GetoptError as err:
+        # print help information and exit:
+        print(str(err))  # will print something like "option -a not recognized"
+        usage()
+        sys.exit(2)
+    for o, a in opts:
+        if o in ("-h", "--help"):
+            usage()
+            sys.exit()
+        elif o in ("-g", "--gui"):
+            win = Gui()
+            win.show()
+        elif o in ("-d", "--dir"):
+            dirname = a
+        elif o in ("-n", "--name"):
+            name = a
+        else:
+            assert False, "unhandled option"
+
 if __name__ == "__main__":
-   win = Gui()
-   win.show()
-   #win.connect("delete-event", Gtk.main_quit)
-   #win.show_all()
-   #Gtk.main()
+    main()

@@ -12,9 +12,9 @@ from gi.repository import Gtk, Rsvg, GdkPixbuf, WebKit
 
 # TODO Clean up this flippin mess
 class Gui(Gtk.Window):
-    def __init__(self):
-        self.VAR_DIR = "./output/"
-        self.GRAPH_NAME = "degraf"
+    def __init__(self, dirname, graph_name):
+        self.dirname = dirname
+        self.graph_name = graph_name
         Gtk.Window.__init__(self, title="Disk data visualization")
         self.webview = WebKit.WebView()
         settings = self.webview.get_settings()
@@ -39,9 +39,9 @@ class Gui(Gtk.Window):
         self.grid.attach(hscrollbar, 0, 1, 1, 1)
 
         self.vis = visualizer.Visualizer()
-        self.vis.createGraph(self.GRAPH_NAME, self.VAR_DIR) 
+        self.vis.createGraph(self.dirname, self.graph_name) 
     def on_button_clicked(self, widget):
-        self.webview.open("file://localhost" + path.abspath(self.VAR_DIR) + "/" + self.GRAPH_NAME + ".svg")
+        self.webview.open("file://localhost" + path.abspath(self.dirname) + "/" + self.graph_name+ ".svg")
 
     def show(self):
         self.connect("delete-event", Gtk.main_quit)
@@ -59,11 +59,15 @@ def usage():
     print("-n or --name: Sets up the name of output file.")
     print("  Example: sudo python3 gui.py -n graph")
     print("  Creates file called graph.svg")
+    pritn("Running without any arguments creates graph with default name in default dir.")
 
 # create and run the application, exit with the value returned by
 # running the program
 # TODO Make the program react to the options
 def main():
+    is_gui = False
+    dirname = "generated_graphs" 
+    name = "graph"
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hgd:n:", ["help", "gui", "dir=", "name="])
     except getopt.GetoptError as err:
@@ -76,14 +80,19 @@ def main():
             usage()
             sys.exit()
         elif o in ("-g", "--gui"):
-            win = Gui()
-            win.show()
+            is_gui = True
+            print("Running in GUI mode.")
         elif o in ("-d", "--dir"):
             dirname = a
         elif o in ("-n", "--name"):
             name = a
         else:
             assert False, "unhandled option"
+    print("Output directory is: " + dirname)
+    print("Name of the graph file: " + name)
+    win = Gui(dirname, name)
+    if is_gui:
+        win.show()
 
 if __name__ == "__main__":
     main()

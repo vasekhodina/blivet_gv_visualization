@@ -18,7 +18,7 @@ class Visualizer(object):
         for n in self.node_list:
             n.prepare()
 
-    def createGraph(self, graph_name, graph_abs_path):
+    def createGraph(self, graph_abs_path, graph_name):
         """ Function that creates the a visualized graph using data extracted from blivet
         :param str graph_name filename of the graph that is being created
         :param graph_abs_path absolute path to the directory where the graph should be created
@@ -30,7 +30,7 @@ class Visualizer(object):
         gv_input.getDataFromBlivet()
         self.prepareNodes()
         out = output.Output(self.node_list, self.edge_list)
-        out.createSvg(graph_name, graph_abs_path)
+        out.createSvg(graph_abs_path, graph_name)
 
     def create_actions_graph(self, graph_name, graph_abs_path):
         """ Function that creates the a visualized graph using data extracted from blivet

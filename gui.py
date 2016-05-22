@@ -43,7 +43,8 @@ class Gui(Gtk.Window):
 
     # TODO help window
     def on_button_clicked(self, widget):
-        return
+        help_win = HelpWindow()
+        help_win.show_all()
 
     def show(self):
         self.connect("delete-event", Gtk.main_quit)
@@ -91,6 +92,35 @@ def main():
     win = Gui(dirname, name)
     if is_gui:
         win.show()
+
+class HelpWindow(Gtk.Window):
+    def __init__(self):
+        Gtk.Window.__init__(self, title="Help")
+        self.set_default_size(800,280)
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        label = Gtk.Label()
+        label.set_markup("<big>Graph help</big>\n"
+                         "The Graph is zoomable and panable. You can also click on the nodes to receive additional information.\n"
+                         "\n"
+                         "<big>Nodes help</big>\n"
+                         "The nodes have different shapes and colours according to the node type.\n"
+                         "Nodes that are more hardware related are displayed with darker colour.\n"
+                         "More abstract devices use brighter colour.\n"
+                         "If there are actions present, red means delete action, green means create action and violet means resize.\n"
+                         "\n"
+                         "<big>Edges help</big>\n"
+                         "The edges symbolize parent child relations.\n"
+                         "Edges always go from parent to child for example sda -> sda1.\n"
+                         "\n"
+                         "<big>About this program</big>\n"
+                         "This visualization tool was created as a bachelors thesis at <a href=\"https://www.fi.muni.cz/\">Faculty of Informatics</a> at <a href=\"https://www.muni.cz/\">Masaryk University</a>\n"
+                         "with the help of people from <a href=\"https://www.redhat.com/en/global/czech-republic\">Red Hat Czech</a>, big thanks to them.\n"
+                         "Pan and zoom functionality is provided by JS library <a href=\"https://code.google.com/archive/p/svgpan/\">SVGPan</a>.\n"
+                         "<b>Author:</b> Václav Hodina\n"
+                         "<b>E-mail:</b> vhodina@redhat.com\n"
+                         "<b>Link</b> to<a href=\"https://github.com/vasekhodina/blivet_gv_visualization\">Github repository</a> of the project.\n")
+        box.pack_start(label, True, True, 0)
+        self.add(box)
 
 if __name__ == "__main__":
     main()

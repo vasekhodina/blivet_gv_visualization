@@ -11,6 +11,7 @@ from gi.repository import Gtk, Rsvg, GdkPixbuf, WebKit
 
 
 class Gui(Gtk.Window):
+    """ Main application window class"""
     def __init__(self, dirname, graph_name):
         self.HEIGHT = 600
         self.WIDTH = 800
@@ -38,20 +39,23 @@ class Gui(Gtk.Window):
         self.add(self.scroll)
         # Generate and display the graph
         self.vis = visualizer.Visualizer()
-        self.vis.createGraph(self.dirname, self.graph_name) 
+        self.vis.create_graph(self.dirname, self.graph_name) 
         self.webview.open("file://localhost" + path.abspath(self.dirname) + "/" + self.graph_name+ ".svg")
 
     # TODO help window
     def on_button_clicked(self, widget):
+        """ Function handling the Help button click"""
         help_win = HelpWindow()
         help_win.show_all()
 
     def show(self):
+        """ Function for showing of Gui programatically"""
         self.connect("delete-event", Gtk.main_quit)
         self.show_all()
         Gtk.main()
 
 def usage():
+    """ Prints usage instructions in cli"""
     print("How to use:")
     print("-h or --help: Prints this message.")
     print("-g or --gui: Starts the program in gui mode.")
@@ -61,9 +65,10 @@ def usage():
     print("-n or --name: Sets up the name of output file.")
     print("  Example: sudo python3 gui.py -n graph")
     print("  Creates file called graph.svg")
-    pritn("Running without any arguments creates graph with default name in default dir.")
+    print("Running without any arguments creates graph with default name in default dir.")
 
 def main():
+    """ Main function of the program """
     is_gui = False
     dirname = "generated_graphs" 
     name = "graph"
@@ -87,13 +92,12 @@ def main():
             name = a
         else:
             assert False, "unhandled option"
-    print("Output directory is: " + dirname)
-    print("Name of the graph file: " + name)
     win = Gui(dirname, name)
     if is_gui:
         win.show()
 
 class HelpWindow(Gtk.Window):
+    """ Class hoding strings in help window """
     def __init__(self):
         Gtk.Window.__init__(self, title="Help")
         self.set_default_size(800,280)
@@ -118,7 +122,7 @@ class HelpWindow(Gtk.Window):
                          "Pan and zoom functionality is provided by JS library <a href=\"https://code.google.com/archive/p/svgpan/\">SVGPan</a>.\n"
                          "<b>Author:</b> Václav Hodina\n"
                          "<b>E-mail:</b> vhodina@redhat.com\n"
-                         "<b>Link</b> to<a href=\"https://github.com/vasekhodina/blivet_gv_visualization\">Github repository</a> of the project.\n")
+                         "<b>Link</b> to <a href=\"https://github.com/vasekhodina/blivet_gv_visualization\">Github repository</a> of the project.\n")
         box.pack_start(label, True, True, 0)
         self.add(box)
 

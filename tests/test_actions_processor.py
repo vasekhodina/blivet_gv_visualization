@@ -1,14 +1,2 @@
-import unittest
-
-import blivet
-
-class test_actions_processor(unittest.TestCase)
-    def setUp(self)
-        b = blivet.Blivet()
-
-    def test_find_node(self)
-
-    def test_process_action(self)
-
-if __name__ == "__main__":
-    unittest.main()
+# To test actions processor please run file gen_actions_graph.py
+# But first read instructions in the file

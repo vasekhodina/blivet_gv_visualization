@@ -7,9 +7,9 @@ class Output:
     """ Class for creating graphs, uses data loaded previously. """
 
     def __init__(self, node_list, edge_list):
-        self.graph = self.createGvGraph(node_list, edge_list)
+        self.graph = self.create_gv_graph(node_list, edge_list)
 
-    def createSvg(self, graph_abs_path, graph_name):
+    def create_svg(self, graph_abs_path, graph_name):
         """ Creates an SVG file from the graph object that is stored as attribute of Output class.
         :param str graph_name Filename that the graph should have.
         :param str graph_abs_path Absolute path leading to the directory where the graph should be created."""
@@ -18,7 +18,7 @@ class Output:
         print("Full path of graph: " + graph_abs_path + "/" + graph_name + ".svg")
         svg_tree.write(graph_abs_path + "/" + graph_name + ".svg", "utf-8")
 
-    def createGvGraph(self, node_list, edge_list):
+    def create_gv_graph(self, node_list, edge_list):
         """ Creates a graph object from list of nodes and list of edges.
         :param list node_list List of nodes the graph should contain, prepared for visualization.
         :param list edge_list List of edges the graph sould contain.

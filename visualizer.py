@@ -13,12 +13,12 @@ class Visualizer(object):
         self.edge_list = []
         self.palletePath = palletePath
 
-    def prepareNodes(self):
+    def prepare_nodes(self):
         """ prepare the nodes in node_list """
         for n in self.node_list:
             n.prepare()
 
-    def createGraph(self, graph_abs_path, graph_name):
+    def create_graph(self, graph_abs_path, graph_name):
         """ Function that creates the a visualized graph using data extracted from blivet
         :param str graph_name filename of the graph that is being created
         :param graph_abs_path absolute path to the directory where the graph should be created
@@ -27,12 +27,12 @@ class Visualizer(object):
         if not os.path.exists(graph_abs_path):
             os.mkdir(graph_abs_path)  
         gv_input = gvInput.GvInput(self.node_list, self.edge_list, self.palletePath, self.blivet)
-        gv_input.getDataFromBlivet()
-        self.prepareNodes()
+        gv_input.get_data_from_blivet()
+        self.prepare_nodes()
         out = output.Output(self.node_list, self.edge_list)
-        out.createSvg(graph_abs_path, graph_name)
+        out.create_svg(graph_abs_path, graph_name)
 
-    def create_actions_graph(self, graph_name, graph_abs_path):
+    def create_actions_graph(self, graph_abs_path, graph_name):
         """ Function that creates the a visualized graph using data extracted from blivet
         :param str graph_name filename of the graph that is being created
         :param graph_abs_path absolute path to the directory where the graph should be created
@@ -41,10 +41,10 @@ class Visualizer(object):
         if not os.path.exists(graph_abs_path):
             os.mkdir(graph_abs_path)  
         gv_input = gvInput.GvInput(self.node_list, self.edge_list, self.palletePath, self.blivet)
-        gv_input.getDataFromBlivet()
+        gv_input.get_data_from_blivet()
         print(self.blivet.devicetree.actions.find())
         actions_processor = actionsProcessor.ActionsProcessor(self.blivet.devicetree.actions.find(), self.node_list, self.edge_list, self.palletePath)
-        actions_processor.processActions()
-        self.prepareNodes()
+        actions_processor.process_actions()
+        self.prepare_nodes()
         out = output.Output(self.node_list, self.edge_list)
-        out.createSvg(graph_name, graph_abs_path)
+        out.create_svg(graph_abs_path, graph_name)

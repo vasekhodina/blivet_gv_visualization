@@ -19,15 +19,15 @@ class GvInput:
         else:
             self.blvt = blvt
 
-    def getDataFromBlivet(self):
+    def get_data_from_blivet(self):
         """ Function that loads data from blivet. Uses attributes of GvInput object."""
         blacklist = ["cdrom"]
         for n in self.blvt.devices:
             if n.type not in blacklist:
                 node_to_be_added = node.Node(n.name, n.type, n.format.type, n.size, n.path, n.uuid)
-                self.processNode(node_to_be_added,n)
+                self.process_node(node_to_be_added,n)
 
-    def processNode(self, node, device):
+    def process_node(self, node, device):
         """ Sorts node based on it's type and starts command related to it.
         :param obj node node that should be sorted
         :param obj device the device from which the node originated, used for getting aditional information"""

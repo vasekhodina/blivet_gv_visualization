@@ -14,11 +14,11 @@ class TestGvInput(unittest.TestCase):
         self.assertIsNotNone(self.gvInput.blvt)
 
     def test_get_data_from_blivet(self):
-        self.gvInput.getDataFromBlivet()
+        self.gvInput.get_data_from_blivet()
         self.assertIsNotNone(self.node_list[0])
 
     def test_process_node(self):
-        self.gvInput.getDataFromBlivet()
+        self.gvInput.get_data_from_blivet()
         for n in self.node_list:
             if n.getType() == "disk":
                 self.assertEqual(n.getGvAttributes()["shape"], "Msquare")

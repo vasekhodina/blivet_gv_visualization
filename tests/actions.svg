@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="925pt" width="1645pt" xmlns:xlink="http://www.w3.org/1999/xlink">
+<script xlink:href="/home/vhodina/git/blivet_gv_visualization/tests/JS/vis_util.js" /><script xlink:href="/home/vhodina/git/blivet_gv_visualization/tests/JS/SVGPan.js" /><g class="graph" id="viewport" transform="scale(1 1) rotate(0) translate(4 921.438)">
+<title>degraph</title>
+<polygon fill="white" points="-4,4 -4,-921.438 1640.91,-921.438 1640.91,4 -4,4" stroke="none" />
+
+<g class="node" id="node1" onclick="zoomNode(this)"><title>/mnt/vfs0</title>
+<ellipse cx="219.91" cy="-837.535" fill="none" rx="130.215" ry="79.8062" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="219.91" y="-878.835">🔓</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="219.91" y="-863.835">Name: /mnt/vfs0</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="219.91" y="-848.835">Type: file</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="219.91" y="-833.835">Format(FS): {'format': 'None'}</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-818.835">uuid: None</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-803.835">size: 50 MiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-788.835">path: /mnt/vfs0</text>
+</g>
+
+<g class="node" id="node8" onclick="zoomNode(this)"><title>loop1</title>
+<ellipse cx="219.91" cy="-631.122" fill="none" rx="86.9483" ry="79.8062" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="219.91" y="-672.422">🔓</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="219.91" y="-657.422">Name: loop1</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="219.91" y="-642.422">Type: loop</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="219.91" y="-627.422">Format(FS): lvmpv</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-612.422">uuid: None</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-597.422">size: 50 MiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-582.422">path: /dev/loop1</text>
+</g>
+
+<g class="edge" id="edge5"><title>/mnt/vfs0-&gt;loop1</title>
+<path d="M219.91,-757.503C219.91,-745.654 219.91,-733.366 219.91,-721.324" fill="none" stroke="black" />
+<polygon fill="black" points="223.41,-721.28 219.91,-711.28 216.41,-721.28 223.41,-721.28" stroke="black" />
+</g>
+
+<g class="node" id="node2" onclick="zoomNode(this)"><title>/mnt/vfs1</title>
+<ellipse cx="497.91" cy="-837.535" fill="none" rx="130.215" ry="79.8062" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="497.91" y="-878.835">🔓</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="497.91" y="-863.835">Name: /mnt/vfs1</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="497.91" y="-848.835">Type: file</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="497.91" y="-833.835">Format(FS): {'format': 'None'}</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="497.91" y="-818.835">uuid: None</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="497.91" y="-803.835">size: 100 MiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="497.91" y="-788.835">path: /mnt/vfs1</text>
+</g>
+
+<g class="node" id="node9" onclick="zoomNode(this)"><title>loop2</title>
+<ellipse cx="497.91" cy="-631.122" fill="none" rx="130.215" ry="79.8062" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="497.91" y="-672.422">🔓</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="497.91" y="-657.422">Name: loop2</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="497.91" y="-642.422">Type: loop</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="497.91" y="-627.422">Format(FS): {'format': 'None'}</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="497.91" y="-612.422">uuid: None</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="497.91" y="-597.422">size: 100 MiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="497.91" y="-582.422">path: /dev/loop2</text>
+</g>
+
+<g class="edge" id="edge6"><title>/mnt/vfs1-&gt;loop2</title>
+<path d="M497.91,-757.503C497.91,-745.654 497.91,-733.366 497.91,-721.324" fill="none" stroke="black" />
+<polygon fill="black" points="501.41,-721.28 497.91,-711.28 494.41,-721.28 501.41,-721.28" stroke="black" />
+</g>
+
+<g class="node" id="node3" onclick="zoomNode(this)"><title>/mnt/virtualfs</title>
+<ellipse cx="794.91" cy="-837.535" fill="none" rx="130.215" ry="79.8062" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="794.91" y="-878.835">🔓</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="794.91" y="-863.835">Name: /mnt/virtualfs</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="794.91" y="-848.835">Type: file</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="794.91" y="-833.835">Format(FS): {'format': 'None'}</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="794.91" y="-818.835">uuid: None</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="794.91" y="-803.835">size: 30 MiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="794.91" y="-788.835">path: /mnt/virtualfs</text>
+</g>
+
+<g class="node" id="node16" onclick="zoomNode(this)"><title>loop0</title>
+<ellipse cx="794.91" cy="-631.122" fill="#ff8f8f" rx="149.399" ry="90.5193" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="794.91" y="-679.922">🔓Fmt:🔥Dev:🔥</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="794.91" y="-664.922">Name: loop0</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="794.91" y="-649.922">Type: loop</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="794.91" y="-634.922">Format(FS): existing None</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="794.91" y="-619.922">uuid: </text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="794.91" y="-604.922">action: Format delete Device delete</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="794.91" y="-589.922">size: 30 MiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="794.91" y="-574.922">path: /dev/loop0</text>
+</g>
+
+<g class="edge" id="edge12"><title>/mnt/virtualfs-&gt;loop0</title>
+<path d="M794.91,-757.503C794.91,-749.105 794.91,-740.487 794.91,-731.892" fill="none" stroke="black" />
+<polygon fill="black" points="798.41,-731.827 794.91,-721.827 791.41,-731.827 798.41,-731.827" stroke="black" />
+</g>
+
+<g class="node" id="node4" onclick="zoomNode(this)"><title>fedora_dhcp129-88</title>
+<ellipse cx="1146.91" cy="-228.903" fill="#ffe04c" rx="216.249" ry="79.8063" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="1146.91" y="-270.203">🔒</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="1146.91" y="-255.203">Name: fedora_dhcp129-88</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="1146.91" y="-240.203">Type: lvmvg</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="1146.91" y="-225.203">Format(FS): {'format': 'None'}</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-210.203">uuid: SfSBHl-Sq8m-UEgu-uP3i-ramH-absR-4nE4nq</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-195.203">size: 465.27 GiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-180.203">path: /dev/fedora_dhcp129--88</text>
+</g>
+
+<g class="node" id="node5" onclick="zoomNode(this)"><title>fedora_dhcp129-88-home</title>
+<path d="M965.41,-113C965.41,-113 684.41,-113 684.41,-113 678.41,-113 672.41,-107 672.41,-101 672.41,-101 672.41,-12 672.41,-12 672.41,-6 678.41,-0 684.41,-0 684.41,-0 965.41,-0 965.41,-0 971.41,-0 977.41,-6 977.41,-12 977.41,-12 977.41,-101 977.41,-101 977.41,-107 971.41,-113 965.41,-113" fill="#ffec8f" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="824.91" y="-97.8">🔒</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="824.91" y="-82.8">Name: fedora_dhcp129-88-home</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="824.91" y="-67.8">Type: lvmlv</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="824.91" y="-52.8">Format(FS): ext4</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="824.91" y="-37.8">uuid: 80QLrf-y3Gz-KjDL-ljLc-C2vm-BVgz-ckYJ13</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="824.91" y="-22.8">size: 407.57 GiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="824.91" y="-7.8">path: /dev/mapper/fedora_dhcp129--88-home</text>
+</g>
+
+<g class="edge" id="edge2"><title>fedora_dhcp129-88-&gt;fedora_dhcp129-88-home</title>
+<path d="M1024.26,-162.995C996.192,-148.143 966.476,-132.417 938.798,-117.769" fill="none" stroke="black" />
+<polygon fill="black" points="940.363,-114.638 929.887,-113.054 937.089,-120.825 940.363,-114.638" stroke="black" />
+</g>
+
+<g class="node" id="node6" onclick="zoomNode(this)"><title>fedora_dhcp129-88-root</title>
+<path d="M1286.41,-113C1286.41,-113 1007.41,-113 1007.41,-113 1001.41,-113 995.41,-107 995.41,-101 995.41,-101 995.41,-12 995.41,-12 995.41,-6 1001.41,-0 1007.41,-0 1007.41,-0 1286.41,-0 1286.41,-0 1292.41,-0 1298.41,-6 1298.41,-12 1298.41,-12 1298.41,-101 1298.41,-101 1298.41,-107 1292.41,-113 1286.41,-113" fill="#ffec8f" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="1146.91" y="-97.8">🔒</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="1146.91" y="-82.8">Name: fedora_dhcp129-88-root</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="1146.91" y="-67.8">Type: lvmlv</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="1146.91" y="-52.8">Format(FS): ext4</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-37.8">uuid: k8czID-ABX7-xelh-vpY7-SzaR-zmBj-G3sa2b</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-22.8">size: 50 GiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-7.8">path: /dev/mapper/fedora_dhcp129--88-root</text>
+</g>
+
+<g class="edge" id="edge3"><title>fedora_dhcp129-88-&gt;fedora_dhcp129-88-root</title>
+<path d="M1146.91,-148.688C1146.91,-140.161 1146.91,-131.553 1146.91,-123.21" fill="none" stroke="black" />
+<polygon fill="black" points="1150.41,-123.186 1146.91,-113.186 1143.41,-123.186 1150.41,-123.186" stroke="black" />
+</g>
+
+<g class="node" id="node7" onclick="zoomNode(this)"><title>fedora_dhcp129-88-swap</title>
+<path d="M1624.91,-113C1624.91,-113 1328.91,-113 1328.91,-113 1322.91,-113 1316.91,-107 1316.91,-101 1316.91,-101 1316.91,-12 1316.91,-12 1316.91,-6 1322.91,-0 1328.91,-0 1328.91,-0 1624.91,-0 1624.91,-0 1630.91,-0 1636.91,-6 1636.91,-12 1636.91,-12 1636.91,-101 1636.91,-101 1636.91,-107 1630.91,-113 1624.91,-113" fill="#ffec8f" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="1476.91" y="-97.8">🔒</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="1476.91" y="-82.8">Name: fedora_dhcp129-88-swap</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="1476.91" y="-67.8">Type: lvmlv</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="1476.91" y="-52.8">Format(FS): swap</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1476.91" y="-37.8">uuid: lWutvF-s5FP-FVKC-2PBr-QV61-ACSa-77MLSs</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1476.91" y="-22.8">size: 7.7 GiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1476.91" y="-7.8">path: /dev/mapper/fedora_dhcp129--88-swap</text>
+</g>
+
+<g class="edge" id="edge4"><title>fedora_dhcp129-88-&gt;fedora_dhcp129-88-swap</title>
+<path d="M1271.67,-163.481C1300.66,-148.513 1331.41,-132.634 1360.04,-117.849" fill="none" stroke="black" />
+<polygon fill="black" points="1361.98,-120.788 1369.26,-113.09 1358.76,-114.568 1361.98,-120.788" stroke="black" />
+</g>
+
+<g class="node" id="node14" onclick="zoomNode(this)"><title>vis_test</title>
+<ellipse cx="219.91" cy="-424.709" fill="#ffe04c" rx="219.82" ry="79.8062" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="219.91" y="-466.009">🔓</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="219.91" y="-451.009">Name: vis_test</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="219.91" y="-436.009">Type: lvmvg</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="219.91" y="-421.009">Format(FS): {'format': 'None'}</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-406.009">uuid: z3UrcX-MvRd-Yxaf-Vzyh-mqyR-jSrc-c47mmi</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-391.009">size: 48 MiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-376.009">path: /dev/vis_test</text>
+</g>
+
+<g class="edge" id="edge10"><title>loop1-&gt;vis_test</title>
+<path d="M219.91,-551.091C219.91,-539.242 219.91,-526.954 219.91,-514.911" fill="none" stroke="black" />
+<polygon fill="black" points="223.41,-514.867 219.91,-504.867 216.41,-514.867 223.41,-514.867" stroke="black" />
+</g>
+
+<g class="node" id="node10" onclick="zoomNode(this)"><title>luks-10877ed7-74e8-4a0e-a12a-d095b1afec88</title>
+<ellipse cx="1146.91" cy="-424.709" fill="#ffe66b" rx="262.173" ry="79.8062" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="1146.91" y="-466.009">🔒</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="1146.91" y="-451.009">Name: luks-10877ed7-74e8-4a0e-a12a-d095b1afec88</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="1146.91" y="-436.009">Type: luks/dm-crypt</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="1146.91" y="-421.009">Format(FS): lvmpv</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-406.009">uuid: None</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-391.009">size: 465.27 GiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-376.009">path: /dev/mapper/luks-10877ed7-74e8-4a0e-a12a-d095b1afec88</text>
+</g>
+
+<g class="edge" id="edge1"><title>luks-10877ed7-74e8-4a0e-a12a-d095b1afec88-&gt;fedora_dhcp129-88</title>
+<path d="M1146.91,-344.601C1146.91,-336.267 1146.91,-327.751 1146.91,-319.312" fill="none" stroke="black" />
+<polygon fill="black" points="1150.41,-319.072 1146.91,-309.072 1143.41,-319.072 1150.41,-319.072" stroke="black" />
+</g>
+
+<g class="node" id="node11" onclick="zoomNode(this)"><title>sda</title>
+<polygon fill="#e9c725" points="1143.41,-899.035 1020.41,-899.035 1020.41,-776.035 1143.41,-776.035 1143.41,-899.035" stroke="black" />
+<polyline fill="none" points="1032.41,-899.035 1020.41,-887.035 " stroke="black" />
+<polyline fill="none" points="1020.41,-788.035 1032.41,-776.035 " stroke="black" />
+<polyline fill="none" points="1131.41,-776.035 1143.41,-788.035 " stroke="black" />
+<polyline fill="none" points="1143.41,-887.035 1131.41,-899.035 " stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="1081.91" y="-878.835">🔓</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="1081.91" y="-863.835">Name: sda</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="1081.91" y="-848.835">Type: disk</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="1081.91" y="-833.835">Format(FS): msdos</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1081.91" y="-818.835">uuid: None</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1081.91" y="-803.835">size: 465.76 GiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1081.91" y="-788.835">path: /dev/sda</text>
+</g>
+
+<g class="node" id="node12" onclick="zoomNode(this)"><title>sda1</title>
+<polygon fill="#ffec8f" points="1073.41,-687.622 962.41,-687.622 962.41,-574.622 1073.41,-574.622 1073.41,-687.622" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="1017.91" y="-672.422">🔓</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="1017.91" y="-657.422">Name: sda1</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="1017.91" y="-642.422">Type: partition</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="1017.91" y="-627.422">Format(FS): ext4</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1017.91" y="-612.422">uuid: None</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1017.91" y="-597.422">size: 500 MiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1017.91" y="-582.422">path: /dev/sda1</text>
+</g>
+
+<g class="edge" id="edge8"><title>sda-&gt;sda1</title>
+<path d="M1062.97,-776.034C1055.26,-751.402 1046.32,-722.87 1038.45,-697.738" fill="none" stroke="black" />
+<polygon fill="black" points="1041.71,-696.424 1035.38,-687.926 1035.03,-698.515 1041.71,-696.424" stroke="black" />
+</g>
+
+<g class="node" id="node13" onclick="zoomNode(this)"><title>sda2</title>
+<polygon fill="#ffec8f" points="1201.91,-687.622 1091.91,-687.622 1091.91,-574.622 1201.91,-574.622 1201.91,-687.622" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="1146.91" y="-672.422">🔓</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="1146.91" y="-657.422">Name: sda2</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="1146.91" y="-642.422">Type: partition</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="1146.91" y="-627.422">Format(FS): luks</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-612.422">uuid: None</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-597.422">size: 465.27 GiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="1146.91" y="-582.422">path: /dev/sda2</text>
+</g>
+
+<g class="edge" id="edge9"><title>sda-&gt;sda2</title>
+<path d="M1101.15,-776.034C1108.98,-751.402 1118.05,-722.87 1126.05,-697.738" fill="none" stroke="black" />
+<polygon fill="black" points="1129.47,-698.517 1129.17,-687.926 1122.8,-696.396 1129.47,-698.517" stroke="black" />
+</g>
+
+<g class="edge" id="edge7"><title>sda2-&gt;luks-10877ed7-74e8-4a0e-a12a-d095b1afec88</title>
+<path d="M1146.91,-574.535C1146.91,-556.128 1146.91,-535.154 1146.91,-514.876" fill="none" stroke="black" />
+<polygon fill="black" points="1150.41,-514.673 1146.91,-504.673 1143.41,-514.673 1150.41,-514.673" stroke="black" />
+</g>
+
+<g class="node" id="node15" onclick="zoomNode(this)"><title>vis_test-vis_lv</title>
+<path d="M367.41,-285.403C367.41,-285.403 72.4102,-285.403 72.4102,-285.403 66.4102,-285.403 60.4102,-279.403 60.4102,-273.403 60.4102,-273.403 60.4102,-184.403 60.4102,-184.403 60.4102,-178.403 66.4102,-172.403 72.4102,-172.403 72.4102,-172.403 367.41,-172.403 367.41,-172.403 373.41,-172.403 379.41,-178.403 379.41,-184.403 379.41,-184.403 379.41,-273.403 379.41,-273.403 379.41,-279.403 373.41,-285.403 367.41,-285.403" fill="#ffec8f" stroke="black" />
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 0)" x="219.91" y="-270.203">🔓</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 10)" x="219.91" y="-255.203">Name: vis_test-vis_lv</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 20)" x="219.91" y="-240.203">Type: lvmlv</text>
+<text font-family="Times,serif" font-size="18.00" text-anchor="middle" transform="translate(0, 30)" x="219.91" y="-225.203">Format(FS): ext4</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-210.203">uuid: xLSUfu-DiFK-ZcHA-ZLB6-zdZW-rGae-5ZzJNv</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-195.203">size: 20 MiB</text>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" visibility="hidden" x="219.91" y="-180.203">path: /dev/mapper/vis_test-vis_lv</text>
+</g>
+
+<g class="edge" id="edge11"><title>vis_test-&gt;vis_test-vis_lv</title>
+<path d="M219.91,-344.601C219.91,-328.374 219.91,-311.457 219.91,-295.756" fill="none" stroke="black" />
+<polygon fill="black" points="223.41,-295.633 219.91,-285.633 216.41,-295.633 223.41,-295.633" stroke="black" />
+</g>
+</g>
+</svg>
